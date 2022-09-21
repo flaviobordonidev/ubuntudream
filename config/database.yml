@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: ubuntudream_production
-  username: ubuntudream
-  password: <%= ENV["UBUNTUDREAM_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
