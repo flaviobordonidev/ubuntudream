@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :users
+
   get 'mockups/page_a'
   get 'mockups/edu_sign_in'
   get 'mockups/edu_index'
