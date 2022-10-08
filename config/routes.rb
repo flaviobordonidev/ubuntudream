@@ -13,5 +13,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root 'mockups#edu_index'
+  root 'mockups#page_a'
 end
