@@ -37,9 +37,13 @@
 
 
 <h1>Hello world</h1>
-<p>this is the homepage</p>
-<p>this is a change</p>
+<p> utente attivo: <%= current_user.present? == true ? current_user.email : "nessun utente loggato" %> </p> 
+<p> 
+  <%= button_to "logout", destroy_user_session_path, method: :delete, class: 'btn btn-danger' if current_user.present? %>
+  <%= link_to "login", new_user_session_path, class: 'btn btn-primary' unless current_user.present? %>
+</p>
 
+<br/>
 <br/>
 
 <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
