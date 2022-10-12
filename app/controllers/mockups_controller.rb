@@ -33,4 +33,12 @@ class MockupsController < ApplicationController
   def lessons_show_steps_show
     render layout: 'edu_demo'
   end
+
+  def users_show
+    render layout: 'edu_demo'
+  end
+
+  def users_edit
+    render layout: 'edu_demo'
+  end
 end
