@@ -18,6 +18,12 @@
   <p> ON "RENDER" MANTIENI my custom params - shown_fields = <%= params[:shown_fields] %> </p>
 
   <% if params[:shown_fields] == 'account' or params[:shown_fields] == 'all' %>
+
+    <div>
+      <%= form.label :avatar_image %>
+      <%= form.file_field :avatar_image %>
+    </div>
+
     <div>
       <%= form.label :username, style: "display: block" %>
       <%= form.text_field :username %>

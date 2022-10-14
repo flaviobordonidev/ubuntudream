@@ -1,4 +1,11 @@
 <div id="<%= dom_id user %>">
+
+  <% if user.avatar_image.attached? %>
+    <p><%= image_tag user.avatar_image %></p>
+  <% else %>
+    <p>Nessuna immagine presente</p>
+  <% end %>
+
   <p>
     <strong>Username:</strong>
     <%= user.username %>

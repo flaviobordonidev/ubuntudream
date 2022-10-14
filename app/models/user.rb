@@ -9,5 +9,4 @@ class User < ApplicationRecord
 
   ## Validation
   validates :username, presence: true
-
 end
