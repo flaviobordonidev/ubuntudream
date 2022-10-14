@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: %i[ show edit update destroy ]
   #before_action :set_user, only: [:show, :edit, :update, :destroy]
 
@@ -18,8 +19,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    #raise "shown_fields = #{params[:shown_fields]}"
   end
-
+ 
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
@@ -66,6 +68,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :first_name, :last_name, :location, :bio, :phone_number, :email, :password, :password_confirmation)
+      params.require(:user).permit(:username, :first_name, :last_name, :location, :bio, :phone_number, :email, :password, :password_confirmation, :shown_fields)
     end
 end

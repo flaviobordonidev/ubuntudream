@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'users/index'
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout'}, controllers: {sessions: 'users/sessions'}
   resources :users
+  #get '/users/:id/edit_password', to: 'users#edit_password', as: 'user_cazzo'
 
   get 'pages/home'
   get 'mockups/page_a'

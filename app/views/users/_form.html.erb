@@ -11,55 +11,65 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
-  </div>
+  <!-- Manteniamo sull'url alcuni params - start --> 
+  <%= hidden_field_tag(:shown_fields, params[:shown_fields]) %>
+  <!-- Manteniamo sull'url alcuni params - end --> 
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
-  </div>
+  <p> ON "RENDER" MANTIENI my custom params - shown_fields = <%= params[:shown_fields] %> </p>
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
-  </div>
+  <% if params[:shown_fields] == 'account' or params[:shown_fields] == 'all' %>
+    <div>
+      <%= form.label :username, style: "display: block" %>
+      <%= form.text_field :username %>
+    </div>
 
-  <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
-  </div>
+    <div>
+      <%= form.label :first_name, style: "display: block" %>
+      <%= form.text_field :first_name %>
+    </div>
 
-  <div>
-    <%= form.label :bio, style: "display: block" %>
-    <%= form.text_field :bio %>
-  </div>
+    <div>
+      <%= form.label :last_name, style: "display: block" %>
+      <%= form.text_field :last_name %>
+    </div>
 
-  <div>
-    <%= form.label :phone_number, style: "display: block" %>
-    <%= form.text_field :phone_number %>
-  </div>
+    <div>
+      <%= form.label :location, style: "display: block" %>
+      <%= form.text_field :location %>
+    </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
+    <div>
+      <%= form.label :bio, style: "display: block" %>
+      <%= form.text_field :bio %>
+    </div>
 
-  <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.password_field :password %>
-  </div>
+    <div>
+      <%= form.label :phone_number, style: "display: block" %>
+      <%= form.text_field :phone_number %>
+    </div>
 
-  <div>
-    <%= form.label :password_confirmation, style: "display: block" %>
-    <%= form.password_field :password_confirmation %>
-  </div>
+    <div>
+      <%= form.label :email, style: "display: block" %>
+      <%= form.text_field :email %>
+    </div>
+  <% end %>
 
-  <div>
-    <%= form.label :encrypted_password, style: "display: block" %>
-    <%= form.text_field :encrypted_password %>
-  </div>
+  <% if params[:shown_fields] == 'password' or params[:shown_fields] == 'all' %>
+    <div>
+      <%= form.label :password, style: "display: block" %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div>
+      <%= form.label :password_confirmation, style: "display: block" %>
+      <%= form.password_field :password_confirmation %>
+    </div>
+
+    <div>
+      <%= form.label :encrypted_password, style: "display: block" %>
+      <%= form.text_field :encrypted_password %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.submit %>

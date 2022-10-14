@@ -6,4 +6,8 @@ class User < ApplicationRecord
     
   ## ActiveStorage
   has_one_attached :avatar_image
+
+  ## Validation
+  validates :username, presence: true
+
 end
