@@ -27,3 +27,5 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 //     toast.show()
 //   })
 // }
+import "trix"
+import "@rails/actiontext"
