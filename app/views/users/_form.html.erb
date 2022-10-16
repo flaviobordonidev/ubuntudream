@@ -21,6 +21,12 @@
 
     <div>
       <%= form.label :avatar_image %>
+      <% if user.avatar_image.attached? %>
+        <%= image_tag user.avatar_image.variant(resize_to_fit: [100, 100]) %>
+        <%= link_to 'Remove', delete_image_attachment_user_path(user.avatar_image.id), method: :get %>
+      <% else %>
+        nessuna immagine presente al momento
+      <% end %>
       <%= form.file_field :avatar_image %>
     </div>
 

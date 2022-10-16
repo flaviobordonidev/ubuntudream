@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   get 'users/index'
   devise_for :users, path: '', path_names: {sign_in: 'login', sign_out: 'logout'}, controllers: {sessions: 'users/sessions'}
-  resources :users
+  resources :users do
+    member do
+      get :delete_image_attachment
+    end
+  end
   #get '/users/:id/edit_password', to: 'users#edit_password', as: 'user_cazzo'
 
   get 'pages/home'
