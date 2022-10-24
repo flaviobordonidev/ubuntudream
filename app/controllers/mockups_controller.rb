@@ -1,5 +1,6 @@
 class MockupsController < ApplicationController
   def page_a
+    render layout: 'basic'
   end
 
   def edu_sign_in
