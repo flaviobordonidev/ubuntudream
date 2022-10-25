@@ -53,6 +53,12 @@
 <hr/>
 <br/>
 
+<%= link_to "Inglese", params.permit(:locale).merge(locale: 'en') %> |
+<%= link_to "Italiano", params.permit(:locale).merge(locale: 'it') %> 
+
+<hr/>
+<br/>
+
 <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="<%= t("mockups.page_a.popover_title") %>" data-bs-content="<%= t("mockups.page_a.amazing_content") %>"><%= t("mockups.page_a.click_to_toggle_popover") %></button>
 
 <br/>
