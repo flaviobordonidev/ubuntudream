@@ -80,3 +80,63 @@
     </div>
   </div>
 </div>
+
+<br/>
+<hr/>
+<br/>
+
+<h3>Formattazione della DATA e ORA</h3>
+<p>Il valore data e ora del campo "created_at" del primo utente <code>current_user.created_at</code>: <strong><%= current_user.created_at %></strong></p>
+<p>stesso valore formattato <code>current_user.created_at.strftime("%A %d %^B %Y at %H:%M and %S seconds")</code>: <strong><%= current_user.created_at.strftime("%A %d %^B %Y at %H:%M and %S seconds") %></strong></p>
+
+<hr/>
+
+<p>Esprimiamo un valore data e ora come stringa <code>"2022-10-08 23:30:28 UTC"</code>: <strong><%= "2022-10-08 23:30:28 UTC" %></strong></p>
+<p>Se proviamo ad applicare la formattazione <code>"2022-10-08 23:30:28 UTC".strftime("day %d %^B %Y")</code> abbiamo un errore: <strong><code>ERROR: undefined method `strftime' for "2022-10-08 23:30:28 UTC":String</code></strong></p>
+
+<hr/>
+
+<p>Convertiamo la stringa ad un tipo data, ma senza l'orario <code>"2022-10-08 23:30:28 UTC".to_date</code>: <strong><%= "2022-10-08 23:30:28 UTC".to_date %></strong></p>
+<p>Se formattiamo l'orario è tutto a zero <code>"2022-10-08 23:30:28 UTC".to_date.strftime("%A %d %^B %Y at %H:%M and %S seconds")</code>: <strong><%= "2022-10-08 23:30:28 UTC".to_date.strftime("%A %d %^B %Y at %H:%M and %S seconds") %></strong></p>
+
+<hr/>
+
+<p>Convertiamo la stringa ad un tipo data con l'orario <code>"2022-10-08 23:30:28 UTC".to_datetime</code>: <strong><%= "2022-10-08 23:30:28 UTC".to_datetime %></strong></p>
+<p>Se formattiamo abbiamo anche l'orario <code>"2022-10-08 23:30:28 UTC".to_datetime.strftime("%A %d %^B %Y at %H:%M and %S seconds")</code>: <strong><%= "2022-10-08 23:30:28 UTC".to_datetime.strftime("%A %d %^B %Y at %H:%M and %S seconds") %></strong></p>
+
+<hr/><br/>
+
+<h4> Qualche esempio con .strftime() usato direttamente. --> non ho la traduzione nelle varie lingue(i18n) </h4>
+<p><code>"2022-10-08 23:30:28 UTC".to_datetime.strftime("%A %d %^B %Y at %H:%M and %S seconds")</code>: <strong><%= "2022-10-08 23:30:28 UTC".to_datetime.strftime("%A %d %^B %Y at %H:%M and %S seconds") %></strong></p>
+<p><code>"2022-10-08 23:30:28 UTC".to_datetime.strftime("Today is %d %^B %Y")</code>: <strong><%= "2022-10-08 23:30:28 UTC".to_datetime.strftime("Today is %d %^B %Y") %></strong></p>
+
+<hr/><br/>
+
+<h4> Qualche esempio tramite i files in <code>config/locales/</code> --> ho la traduzione nelle varie lingue (i18n) </h4>
+<p><q>Usano la stessa sintassi di .strftime() </q></p>
+<p><code>l "2022-10-08 23:30:28 UTC".to_date, format: :long</code>: <strong><%= l "2022-10-08 23:30:28 UTC".to_date, format: :long %></strong></p>
+<p><code>l "2022-10-08 23:30:28 UTC".to_datetime, format: :long</code>: <strong><%= l "2022-10-08 23:30:28 UTC".to_datetime, format: :long %></strong></p>
+<p><code>l "2022-10-08 23:30:28 UTC".to_date, format: :short</code>: <strong><%= l "2022-10-08 23:30:28 UTC".to_date, format: :short %></strong></p>
+<p><code>l "2022-10-08 23:30:28 UTC".to_datetime, format: :short</code>: <strong><%= l "2022-10-08 23:30:28 UTC".to_datetime, format: :short %></strong></p>
+<p><code>l "2022-10-08 23:30:28 UTC".to_datetime, format: :my_custom_long</code>: <strong><%= l "2022-10-08 23:30:28 UTC".to_datetime, format: :my_custom_long %></strong></p>
+
+<br/>
+<hr/>
+<br/>
+
+<h3>Formattazione delle VALUTE (currency)</h3>
+<p><q>Per i vari campi che contengono un valore monetario. es: prezzi, costi, guadagni, ...</q></p>
+
+<p>numero non formattato: <code>1000000.5555</code>: <strong><%= 1000000.5555 %></strong></p>
+<p>numero formattato come valuta:  <code>number_to_currency(1000000.5555)</code>: <strong><%= number_to_currency(1000000.5555) %></strong></p>
+<p>numero formattato come valuta con 3 decimali:  <code>number_to_currency(1000000.5555, precision: 3)</code>: <strong><%= number_to_currency(1000000.5555, precision: 3) %></strong></p>
+<p>numero formattato come valuta con 4 decimali:  <code>number_to_currency(1000000.5555, precision: 4)</code>: <strong><%= number_to_currency(1000000.5555, precision: 4) %></strong></p>
+<p>numero formattato come valuta con 5 decimali:  <code>number_to_currency(1000000.5555, precision: 5)</code>: <strong><%= number_to_currency(1000000.5555, precision: 5) %></strong> <code>avendo 4 decimali nel numero la quinta cifra è 0</code><br/>
+  (Allo stesso modo, se nel database dichiariamo 4 decimali, la quinta cifra decimale sarà sempre zero)
+</p>
+
+<hr/>
+
+<p>numero formattato con frase:  <code>t "number.currency.format.price_for_reports", price: number_to_currency(1000000.5555, precision: 2)</code>: <strong><%= t "number.currency.format.price_for_reports", price: number_to_currency(1000000.5555, precision: 2) %></strong></p>
+<p>numero formattato descrittivo con frase:  <code>t "number.currency.format.price_for_reports", price: number_to_human(1000000.5555, precision: 2)</code>: <strong><%= t "number.currency.format.price_for_reports", price: number_to_human(1000000.5555, precision: 2) %></strong></p>
+<p>numero formattato descrittivo con frase:  <code>t "number.currency.format.price_for_reports", price: number_to_human(2500000.5555, precision: 2)</code>: <strong><%= t "number.currency.format.price_for_reports", price: number_to_human(2500000.5555, precision: 2) %></strong></p>
