@@ -1,2 +1,870 @@
 <!-- Questo è l'elenco di tutte le lezioni -->
 <!-- Qui lavoriamo con i "tags" per differenziare i 4 gruppi: gratitude; training; dissociation; interiority -->
+
+<!-- Header START -->
+<header class="navbar-light navbar-sticky">
+	<!-- Logo Nav START -->
+	<nav class="navbar navbar-expand-xl">
+		<div class="container">
+			<!-- Logo START -->
+			<a class="navbar-brand" href="index.html">
+        <%= image_tag "edu/logo.svg", class: "light-mode-item navbar-brand-item", alt: "logo" %>
+        <%= image_tag "edu/logo-light.svg", class: "dark-mode-item navbar-brand-item", alt: "logo" %>
+			</a>
+			<!-- Logo END -->
+
+			<!-- Responsive navbar toggler -->
+			<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-animation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</button>
+
+			<!-- Main navbar START -->
+			<div class="navbar-collapse w-100 collapse" id="navbarCollapse">
+
+        <!-- Nav Main menu START -->
+				<ul class="navbar-nav navbar-nav-scroll mx-auto">
+
+					<!-- Nav item 1 Gratitude -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="gratitudeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gratitude</a>
+						<ul class="dropdown-menu" aria-labelledby="gratitudeMenu">
+							<li> <a class="dropdown-item" href="index.html">All</a></li>
+							<li> <a class="dropdown-item" href="index-2.html">Lunapark - Tenda di Kiro</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">Passeggiando al parco</a></li>
+							<li> <a class="dropdown-item" href="index-4.html">Oasi nel deserto</a></li>
+							<li> <a class="dropdown-item" href="index-5.html">Nello spazio</a></li>
+							<li> <a class="dropdown-item" href="index-6.html">Castello scozzese</a></li>
+							<li> <hr class="dropdown-divider"></li>
+							<li> <a class="dropdown-item" href="index-7.html">Altre ambientazioni <span class="badge bg-success ms-2 smaller">New</span></a></li>
+						</ul>
+					</li>
+
+					<!-- Nav item 2 Training -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="trainingMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Training</a>
+						<ul class="dropdown-menu" aria-labelledby="trainingMenu">
+							<li> <a class="dropdown-item" href="index.html">All painting</a></li>
+							<li> <a class="dropdown-item" href="index-2.html">All audio</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">nature</a></li>
+							<li> <a class="dropdown-item" href="index-4.html">city</a></li>
+							<li> <a class="dropdown-item" href="index-5.html">home</a></li>
+						</ul>
+					</li>
+
+
+					<!-- Nav item 3 Dissociation -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dissociationMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dissociation</a>
+						<ul class="dropdown-menu" aria-labelledby="dissociationMenu">
+							<li> <a class="dropdown-item" href="index.html">All</a></li>
+							<li> <a class="dropdown-item" href="index-2.html">vincere la paura</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">vedersi da fuori</a></li>
+						</ul>
+					</li>
+
+					<!-- Nav item 4 Introspection -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="introspectionMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Introspection</a>
+						<ul class="dropdown-menu" aria-labelledby="introspectionMenu">
+							<li> <a class="dropdown-item" href="index.html">All</a></li>
+							<li> <a class="dropdown-item" href="index-2.html">1 - Tornare a sognare</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">2 - Chiarezza</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">3 - Proposito e Motivazione</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">4 - Identità</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">5 - Valori</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">6 - Convinzioni ed Emozioni</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">7 - Interpretare</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">8 - Liberare</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">9 - Potenziare</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">10 - Pianificare</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">11 - Decidere ed Agire</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">12 - Verificare e Celebrare</a></li>
+						</ul>
+					</li>
+
+				</ul>
+				<!-- Nav Main menu END -->
+
+				<!-- Nav Search START -->
+				<div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
+					<div class="nav-item w-100">
+						<form class="position-relative">
+							<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+							<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
+						</form>
+					</div>
+				</div>
+				<!-- Nav Search END -->
+
+			</div>
+			<!-- Main navbar END -->
+
+			<!-- Profile navbar START -->
+			<div class="dropdown ms-1 ms-lg-0">
+				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+					<%= image_tag "edu/avatar/01.jpg", class: "avatar-img rounded-circle", alt: "avatar" %>
+				</a>
+				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+					<!-- Profile info -->
+					<li class="px-3">
+						<div class="d-flex align-items-center">
+							<!-- Avatar -->
+							<div class="avatar me-3">
+								<%= image_tag "edu/avatar/01.jpg", class: "avatar-img rounded-circle", alt: "avatar" %>
+							</div>
+							<div>
+								<a class="h6" href="#">Lori Ferguson</a>
+								<p class="small m-0">example@gmail.com</p>
+							</div>
+						</div>
+						<hr>
+					</li>
+					<!-- Links -->
+					<li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+					<li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+					<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Languages</a></li>
+					<li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+					<li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+					<li> <hr class="dropdown-divider"></li>
+					<!-- Dark mode switch START -->
+					<li>
+						<div class="modeswitch-wrap" id="darkModeSwitch">
+							<div class="modeswitch-item">
+								<div class="modeswitch-icon"></div>
+							</div>
+							<span>Dark mode</span>
+						</div>
+					</li> 
+          <!-- Dark mode switch END -->
+				</ul>
+			</div>
+			<!-- Profile navbar END -->
+		</div>
+	</nav>
+	<!-- Logo Nav END -->
+</header>
+<!-- Header END -->
+
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+<!-- =======================
+Page Banner START -->
+<section class="bg-dark align-items-center d-flex" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+  <!-- Main banner background image -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Title -->
+        <h1 class="text-white">Course List Classic</h1>
+        <!-- Breadcrumb -->
+        <div class="d-flex">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Courses</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =======================
+Page Banner END -->
+
+<!-- =======================
+Page content START -->
+<section class="pb-0 py-sm-5">
+  <div class="container">
+
+    <!-- Title and select START -->
+    <div class="row g-3 align-items-center mb-4">
+      <!-- Advanced filter responsive toggler START -->
+      <div class="col-4 d-xl-none text-md-end mt-0">
+        <button class="btn btn-primary mb-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+          <i class="fas fa-sliders-h me-1"></i> Show filter
+        </button>
+      </div>
+      <!-- Advanced filter responsive toggler END -->
+    </div>
+    <!-- Title and select END -->
+
+    <div class="row">
+      <!-- Main content START -->
+      <div class="col-xl-9 col-xxl-8">
+
+        <!-- Course list START -->
+        <div id="lessons">
+          <div id="lesson_1">
+            <!-- Card list START -->
+            <div class="col-12">
+              <div class="card shadow overflow-hidden p-2">
+                <div class="row g-0">
+                  <div class="col-md-5 overflow-hidden">
+                      <%= image_tag "mockups/training_01.jpeg", class: "rounded-2", alt: "Card image" %>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <!-- Badge and rating -->
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <!-- Badge -->
+                        <a href="#" class="badge bg-primary text-white mb-2 mb-sm-0">Development</a>
+                        <!-- Rating and wishlist -->
+                        <div>
+                          <span class="h6 fw-light me-3"><i class="fas fa-star text-warning me-1"></i>4.5</span>
+                          <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                        </div>
+                      </div>
+
+                      <!-- Title -->
+                      <h5 class="card-title">
+                        <%= link_to "View of mount Vernon", root_path %>
+                      </h5>
+                      <p class="text-truncate-2 d-none d-lg-block">Satisfied conveying a dependent contented he gentleman agreeable do be. dependent contented he</p>
+
+                      <!-- Info -->
+                      <ul class="list-inline">
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="far fa-clock text-danger me-2"></i>15 m</li>
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="fas fa-table text-orange me-2"></i> 12 steps</li>
+                        <li class="list-inline-item h6 fw-light"><i class="fas fa-signal text-success me-2"></i>Intermediate</li>
+                      </ul>
+
+                      <!-- Price and avatar -->
+                      <div class="d-sm-flex justify-content-sm-between align-items-center">
+                        <!-- Avatar -->
+                        <div class="d-flex align-items-center">
+                          <div class="avatar">
+                            <%#<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">%>
+                            <%= image_tag "mockups/training_01_avatar.png", class: "avatar-img rounded-circle", alt: "avatar" %>
+                          </div>
+                          <p class="mb-0 ms-2"><a href="#" class="h6 fw-light">Joachim Ferdinand Richardt</a></p>
+                        </div>
+                        <!-- Price -->
+                        <div class="mt-3 mt-sm-0">
+                          <%= link_to "View more", root_path, class: "btn btn-dark" %>
+                          <%# <a href="#" class="btn btn-dark">View more</a>     %>
+                        </div>                  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card list END -->
+
+            <%= link_to 'View All Steps with answers', root_path %>
+            <%= link_to 'Add New Step', root_path %>
+            <%= link_to "Show this lesson", root_path %>
+          </div>
+
+          <div id="lesson_2">
+            <!-- Card list START -->
+            <div class="col-12">
+              <div class="card shadow overflow-hidden p-2">
+                <div class="row g-0">
+                  <div class="col-md-5 overflow-hidden">
+                      <%= image_tag "mockups/training_02.jpg", class: "rounded-2", alt: "Card image" %>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <!-- Badge and rating -->
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <!-- Badge -->
+                        <a href="#" class="badge bg-primary text-white mb-2 mb-sm-0">Development</a>
+                        <!-- Rating and wishlist -->
+                        <div>
+                          <span class="h6 fw-light me-3"><i class="fas fa-star text-warning me-1"></i>4.5</span>
+                          <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                        </div>
+                      </div>
+
+                      <!-- Title -->
+                      <h5 class="card-title">
+                        <%= link_to "The isle of the death", root_path %>
+                      </h5>
+                      <p class="text-truncate-2 d-none d-lg-block">Satisfied conveying a dependent contented he gentleman agreeable do be. dependent contented he</p>
+
+                      <!-- Info -->
+                      <ul class="list-inline">
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="far fa-clock text-danger me-2"></i>15 m</li>
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="fas fa-table text-orange me-2"></i> 12 steps</li>
+                        <li class="list-inline-item h6 fw-light"><i class="fas fa-signal text-success me-2"></i>Intermediate</li>
+                      </ul>
+
+                      <!-- Price and avatar -->
+                      <div class="d-sm-flex justify-content-sm-between align-items-center">
+                        <!-- Avatar -->
+                        <div class="d-flex align-items-center">
+                          <div class="avatar">
+                            <%#<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">%>
+                            <%= image_tag "mockups/training_02_avatar.png", class: "avatar-img rounded-circle", alt: "avatar" %>
+                          </div>
+                          <p class="mb-0 ms-2"><a href="#" class="h6 fw-light">Arnold Bocklin</a></p>
+                        </div>
+                        <!-- Price -->
+                        <div class="mt-3 mt-sm-0">
+                          <%= link_to "View more", root_path, class: "btn btn-dark" %>
+                          <%# <a href="#" class="btn btn-dark">View more</a>     %>
+                        </div>                  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card list END -->
+
+            <%= link_to 'View All Steps with answers', root_path %>
+            <%= link_to 'Add New Step', root_path %>
+            <%= link_to "Show this lesson", root_path %>
+          </div>
+
+          <div id="lesson_3">
+            <!-- Card list START -->
+            <div class="col-12">
+              <div class="card shadow overflow-hidden p-2">
+                <div class="row g-0">
+                  <div class="col-md-5 overflow-hidden">
+                      <%= image_tag "mockups/training_03.jpg", class: "rounded-2", alt: "Card image" %>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <!-- Badge and rating -->
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <!-- Badge -->
+                        <a href="#" class="badge bg-primary text-white mb-2 mb-sm-0">Development</a>
+                        <!-- Rating and wishlist -->
+                        <div>
+                          <span class="h6 fw-light me-3"><i class="fas fa-star text-warning me-1"></i>4.5</span>
+                          <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                        </div>
+                      </div>
+
+                      <!-- Title -->
+                      <h5 class="card-title">
+                        <%= link_to "Rue de la Bavole Honfleur", root_path %>
+                      </h5>
+                      <p class="text-truncate-2 d-none d-lg-block">Satisfied conveying a dependent contented he gentleman agreeable do be. dependent contented he</p>
+
+                      <!-- Info -->
+                      <ul class="list-inline">
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="far fa-clock text-danger me-2"></i>15 m</li>
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="fas fa-table text-orange me-2"></i> 12 steps</li>
+                        <li class="list-inline-item h6 fw-light"><i class="fas fa-signal text-success me-2"></i>Intermediate</li>
+                      </ul>
+
+                      <!-- Price and avatar -->
+                      <div class="d-sm-flex justify-content-sm-between align-items-center">
+                        <!-- Avatar -->
+                        <div class="d-flex align-items-center">
+                          <div class="avatar">
+                            <%#<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">%>
+                            <%= image_tag "mockups/training_03_avatar.png", class: "avatar-img rounded-circle", alt: "avatar" %>
+                          </div>
+                          <p class="mb-0 ms-2"><a href="#" class="h6 fw-light">Claude Monet</a></p>
+                        </div>
+                        <!-- Price -->
+                        <div class="mt-3 mt-sm-0">
+                          <%= link_to "View more", root_path, class: "btn btn-dark" %>
+                          <%# <a href="#" class="btn btn-dark">View more</a>     %>
+                        </div>                  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card list END -->
+
+            <%= link_to 'View All Steps with answers', root_path %>
+            <%= link_to 'Add New Step', root_path %>
+            <%= link_to "Show this lesson", root_path %>
+          </div>
+
+          <div id="lesson_4">
+            <!-- Card list START -->
+            <div class="col-12">
+              <div class="card shadow overflow-hidden p-2">
+                <div class="row g-0">
+                  <div class="col-md-5 overflow-hidden">
+                      <%= image_tag "mockups/training_04.jpg", class: "rounded-2", alt: "Card image" %>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <!-- Badge and rating -->
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <!-- Badge -->
+                        <a href="#" class="badge bg-primary text-white mb-2 mb-sm-0">Development</a>
+                        <!-- Rating and wishlist -->
+                        <div>
+                          <span class="h6 fw-light me-3"><i class="fas fa-star text-warning me-1"></i>4.5</span>
+                          <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                        </div>
+                      </div>
+
+                      <!-- Title -->
+                      <h5 class="card-title">
+                        <%= link_to "Restaurant au reveil matin", root_path %>
+                      </h5>
+                      <p class="text-truncate-2 d-none d-lg-block">Satisfied conveying a dependent contented he gentleman agreeable do be. dependent contented he</p>
+
+                      <!-- Info -->
+                      <ul class="list-inline">
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="far fa-clock text-danger me-2"></i>15 m</li>
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="fas fa-table text-orange me-2"></i> 12 steps</li>
+                        <li class="list-inline-item h6 fw-light"><i class="fas fa-signal text-success me-2"></i>Intermediate</li>
+                      </ul>
+
+                      <!-- Price and avatar -->
+                      <div class="d-sm-flex justify-content-sm-between align-items-center">
+                        <!-- Avatar -->
+                        <div class="d-flex align-items-center">
+                          <div class="avatar">
+                            <%#<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">%>
+                            <%= image_tag "mockups/training_04_avatar.png", class: "avatar-img rounded-circle", alt: "avatar" %>
+                          </div>
+                          <p class="mb-0 ms-2"><a href="#" class="h6 fw-light">Saeki Yuzo</a></p>
+                        </div>
+                        <!-- Price -->
+                        <div class="mt-3 mt-sm-0">
+                          <%= link_to "View more", root_path, class: "btn btn-dark" %>
+                          <%# <a href="#" class="btn btn-dark">View more</a>     %>
+                        </div>                  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card list END -->
+
+            <%= link_to 'View All Steps with answers', root_path %>
+            <%= link_to 'Add New Step', root_path %>
+            <%= link_to "Show this lesson", root_path %>
+          </div>
+
+          <div id="lesson_5">
+            <!-- Card list START -->
+            <div class="col-12">
+              <div class="card shadow overflow-hidden p-2">
+                <div class="row g-0">
+                  <div class="col-md-5 overflow-hidden">
+                      <%= image_tag "mockups/training_05.jpg", class: "rounded-2", alt: "Card image" %>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <!-- Badge and rating -->
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <!-- Badge -->
+                        <a href="#" class="badge bg-primary text-white mb-2 mb-sm-0">Development</a>
+                        <!-- Rating and wishlist -->
+                        <div>
+                          <span class="h6 fw-light me-3"><i class="fas fa-star text-warning me-1"></i>4.5</span>
+                          <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                        </div>
+                      </div>
+
+                      <!-- Title -->
+                      <h5 class="card-title">
+                        <%= link_to "End of the year", root_path %>
+                      </h5>
+                      <p class="text-truncate-2 d-none d-lg-block">Yamatane museum  - Satisfied conveying a dependent contented he gentleman agreeable do be. dependent contented he</p>
+
+                      <!-- Info -->
+                      <ul class="list-inline">
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="far fa-clock text-danger me-2"></i>15 m</li>
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="fas fa-table text-orange me-2"></i> 12 steps</li>
+                        <li class="list-inline-item h6 fw-light"><i class="fas fa-signal text-success me-2"></i>Intermediate</li>
+                      </ul>
+
+                      <!-- Price and avatar -->
+                      <div class="d-sm-flex justify-content-sm-between align-items-center">
+                        <!-- Avatar -->
+                        <div class="d-flex align-items-center">
+                          <div class="avatar">
+                            <%#<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">%>
+                            <%= image_tag "mockups/training_05_avatar.png", class: "avatar-img rounded-circle", alt: "avatar" %>
+                          </div>
+                          <p class="mb-0 ms-2"><a href="#" class="h6 fw-light">Higashiyama Kaii</a></p>
+                        </div>
+                        <!-- Price -->
+                        <div class="mt-3 mt-sm-0">
+                          <%= link_to "View more", root_path, class: "btn btn-dark" %>
+                          <%# <a href="#" class="btn btn-dark">View more</a>     %>
+                        </div>                  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card list END -->
+
+            <%= link_to 'View All Steps with answers', root_path %>
+            <%= link_to 'Add New Step', root_path %>
+            <%= link_to "Show this lesson", root_path %>
+          </div>
+
+          <div id="lesson_6">
+            <!-- Card list START -->
+            <div class="col-12">
+              <div class="card shadow overflow-hidden p-2">
+                <div class="row g-0">
+                  <div class="col-md-5 overflow-hidden">
+                      <%= image_tag "mockups/training_06.jpeg", class: "rounded-2", alt: "Card image" %>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="card-body">
+                      <!-- Badge and rating -->
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <!-- Badge -->
+                        <a href="#" class="badge bg-primary text-white mb-2 mb-sm-0">Development</a>
+                        <!-- Rating and wishlist -->
+                        <div>
+                          <span class="h6 fw-light me-3"><i class="fas fa-star text-warning me-1"></i>4.5</span>
+                          <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                        </div>
+                      </div>
+
+                      <!-- Title -->
+                      <h5 class="card-title">
+                        <%= link_to "Nighthawks", root_path %>
+                      </h5>
+                      <p class="text-truncate-2 d-none d-lg-block">Satisfied conveying a dependent contented he gentleman agreeable do be. dependent contented he</p>
+
+                      <!-- Info -->
+                      <ul class="list-inline">
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="far fa-clock text-danger me-2"></i>15 m</li>
+                        <li class="list-inline-item h6 fw-light mb-1 mb-sm-0"><i class="fas fa-table text-orange me-2"></i> 12 steps</li>
+                        <li class="list-inline-item h6 fw-light"><i class="fas fa-signal text-success me-2"></i>Intermediate</li>
+                      </ul>
+
+                      <!-- Price and avatar -->
+                      <div class="d-sm-flex justify-content-sm-between align-items-center">
+                        <!-- Avatar -->
+                        <div class="d-flex align-items-center">
+                          <div class="avatar">
+                            <%#<img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">%>
+                            <%= image_tag "mockups/training_06_avatar.png", class: "avatar-img rounded-circle", alt: "avatar" %>
+                          </div>
+                          <p class="mb-0 ms-2"><a href="#" class="h6 fw-light">Edward Hopper</a></p>
+                        </div>
+                        <!-- Price -->
+                        <div class="mt-3 mt-sm-0">
+                          <%= link_to "View more", root_path, class: "btn btn-dark" %>
+                          <%# <a href="#" class="btn btn-dark">View more</a>     %>
+                        </div>                  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card list END -->
+
+            <%= link_to 'View All Steps with answers', root_path %>
+            <%= link_to 'Add New Step', root_path %>
+            <%= link_to "Show this lesson", root_path %>
+          </div>
+
+        </div>
+        <%= link_to "New lesson", root_path %>
+        <!-- Course list END -->
+
+        <!-- Pagination START -->
+        <div class="col-12">
+          <nav class="mt-4 d-flex justify-content-center" aria-label="navigation">
+            <ul class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+              <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-double-left"></i></a></li>
+              <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
+              <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
+              <li class="page-item mb-0"><a class="page-link" href="#">..</a></li>
+              <li class="page-item mb-0"><a class="page-link" href="#">6</a></li>
+              <li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a></li>
+            </ul>
+          </nav>
+        </div>
+        <!-- Pagination END -->
+      </div>
+      <!-- Main content END -->
+
+      <!-- Right sidebar START -->
+      <div class="col-lg-3 col-xxl-4">
+        <!-- Responsive offcanvas body START -->
+        <nav class="navbar navbar-light navbar-expand-xl mx-0">
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header bg-light">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Advance Filter</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body p-3 p-xl-0">
+              <form>
+    
+                <!-- Category START -->
+                <div class="card card-body shadow p-4 mb-4">
+                  <!-- Title -->
+                  <h4 class="mb-3">Category</h4>
+                  <ul class="list-inline mb-0">
+                    <!-- Category Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-12">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-12">Gratitude</label>
+                    </li>
+                    <!-- Category Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-9">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-9">Training</label>
+                    </li>
+                    <!-- Category Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-10">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-10">Dissociation</label>
+                    </li>
+                    <!-- Category Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-11">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-11">Introspection</label>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Skill level END -->
+    
+                <!-- Time START -->
+                <div class="card card-body shadow p-4 mb-4">
+                  <!-- Title -->
+                  <h4 class="mb-3">Time Duration</h4>
+                  <ul class="list-inline mb-0">
+                    <!-- Time item -->
+                    <li class="list-inline-item">
+                      <input type="radio" class="btn-check" name="options" id="option1">
+                      <label class="btn btn-light btn-primary-soft-check" for="option1">any</label>
+                    </li>
+                    <!-- Time item -->
+                    <li class="list-inline-item">
+                      <input type="radio" class="btn-check" name="options" id="option2">
+                      <label class="btn btn-light btn-primary-soft-check" for="option2">< 10 min</label>
+                    </li>
+                    <!-- Time item -->
+                    <li class="list-inline-item">
+                      <input type="radio" class="btn-check" name="options" id="option3">
+                      <label class="btn btn-light btn-primary-soft-check" for="option3">10-20 min</label>
+                    </li>
+                    <!-- Time item -->
+                    <li class="list-inline-item">
+                      <input type="radio" class="btn-check" name="options" id="option4">
+                      <label class="btn btn-light btn-primary-soft-check" for="option4">20-30 min</label>
+                    </li>
+                    <!-- Time item -->
+                    <li class="list-inline-item">
+                      <input type="radio" class="btn-check" name="options" id="option5">
+                      <label class="btn btn-light btn-primary-soft-check" for="option5">> 30 min</label>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Time END -->
+    
+                <!-- Skill level START -->
+                <div class="card card-body shadow p-4 mb-4">
+                  <!-- Title -->
+                  <h4 class="mb-3">Skill level</h4>
+                  <ul class="list-inline mb-0">
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-12">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-12">All levels</label>
+                    </li>
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-9">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-9">Beginner</label>
+                    </li>
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-10">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-10">Intermediate</label>
+                    </li>
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-11">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-11">Advanced</label>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Skill level END -->
+    
+                <!-- Language START -->
+                <div class="card card-body shadow p-4 mb-4">
+                  <!-- Title -->
+                  <h4 class="mb-3">Language</h4>
+                  <ul class="list-inline mb-0 g-3">
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-2">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-2">English</label>
+                    </li>
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-3">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-3">Francas</label>
+                    </li>
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-4">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-4">Hindi</label>
+                    </li>
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-5">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-5">Russian</label>
+                    </li>
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-6">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-6">Spanish</label>
+                    </li>
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-7">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-7">Bengali</label>
+                    </li>
+                    <!-- Item -->
+                    <li class="list-inline-item mb-2">
+                      <input type="checkbox" class="btn-check" id="btn-check-8">
+                      <label class="btn btn-light btn-primary-soft-check" for="btn-check-8">Portuguese</label>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Language END -->
+            
+                <!-- Other START -->
+                <div class="card card-body shadow p-4 mb-4">
+                  <!-- Title -->
+                  <h4 class="mb-4">Others</h4>
+                    <div class="row">
+                      <!-- Group -->
+                      <div class="col-xxl-6">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault9">
+                          <label class="form-check-label" for="flexCheckDefault9">All</label>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault10">
+                          <label class="form-check-label" for="flexCheckDefault10">Development</label>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
+                          <label class="form-check-label" for="flexCheckDefault11">Design</label>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault12">
+                          <label class="form-check-label" for="flexCheckDefault12">Accounting</label>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault17">
+                          <label class="form-check-label" for="flexCheckDefault17">Translation</label>
+                        </div>
+                      </div>
+    
+                      <!-- Group -->
+                      <div class="col-xxl-6">
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault13">
+                          <label class="form-check-label" for="flexCheckDefault13">Finance</label>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault14">
+                          <label class="form-check-label" for="flexCheckDefault14">Legal</label>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault15">
+                          <label class="form-check-label" for="flexCheckDefault15">Photography</label>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault16">
+                          <label class="form-check-label" for="flexCheckDefault16">Writing</label>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault18">
+                          <label class="form-check-label" for="flexCheckDefault18">Marketing</label>
+                        </div>
+                      </div>
+                    </div><!-- Row END -->
+                </div>
+                <!-- Category END -->
+
+              </form><!-- Form End -->
+            </div>
+
+            <!-- Button -->
+            <div class="d-grid p-2 p-xl-0 bg-body text-center">
+              <button class="btn btn-primary mb-0">Filter Results</button>
+            </div>
+          </div>
+        </nav>
+        <!-- Responsive offcanvas body END -->
+      </div>
+      <!-- Right sidebar END -->
+
+    </div><!-- Row END -->
+  </div>
+</section>
+<!-- =======================
+Page content END -->
+
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark p-3">
+	<div class="container">
+		<div class="row align-items-center">
+			<!-- Widget -->
+			<div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+				<!-- Logo START -->
+				<a href="index.html"> <img class="h-20px" src="assets/images/logo-light.svg" alt="logo"> </a>
+			</div>
+			
+			<!-- Widget -->
+			<div class="col-md-4 mb-3 mb-md-0">
+				<div class="text-center text-white">
+					Copyrights ©2021 <a href="#" class="text-reset btn-link">Eduport</a>. All rights reserved.
+				</div>
+			</div>
+			<!-- Widget -->
+			<div class="col-md-4">
+				<!-- Rating -->
+				<ul class="list-inline mb-0 text-center text-md-end">
+					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-facebook"></i></a></li>
+					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-instagram"></i></a></li>
+					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-linkedin-in"></i></a></li>
+					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-twitter"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+
+<!-- Back to top -->
+<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>

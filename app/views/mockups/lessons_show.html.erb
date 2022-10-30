@@ -151,14 +151,43 @@
 
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
+
+
+<!-- =======================
+Page Banner START -->
+<section class="bg-dark align-items-center d-flex" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+  <!-- Main banner background image -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Title -->
+        <h1 class="text-white">View of mont Vernon</h1>
+        <!-- Breadcrumb -->
+        <div class="d-flex">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Courses</a></li>
+              <li class="breadcrumb-item active" aria-current="page">lesson 1</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =======================
+Page Banner END -->
+
+
 <!-- =======================
 Page banner video START -->
-<section class="py-0 pb-lg-5">
+<section class="py-sm-5 pb-lg-5">
 	<div class="container">
 		<div class="row g-3">
 			<!-- Course video START -->
 			<div class="col-12">
-        <%= image_tag "mockups/training_01.jpeg", class: "light-mode-item navbar-brand-item", alt: "painting" %> 
+        <%= image_tag "mockups/training_01.jpeg", class: "light-mode-item navbar-brand-item mx-auto d-block", alt: "painting" %> 
 			</div>
 			<!-- Course video END -->
 
@@ -188,7 +217,7 @@ Page content START -->
 					<!-- Course title START -->
 					<div class="col-12">
 						<!-- Title -->
-						<h1>Joachim Ferdinand Richardt - de Young museum - view of mount Vernon</h1>
+						<h1>View of mount Vernon</h1>
 						<!-- Content -->
 						<ul class="list-inline mb-0">
 							<li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
@@ -198,12 +227,6 @@ Page content START -->
 					</div>
 					<!-- Course title END -->
 
-					<!-- Button "begin lesson" START -->
-					<div class="col-12 d-grid">
-						<%= link_to "inizia aula", "#", class: "btn btn-primary btn-lg" %>
-					</div>
-					<!-- Button "begin lesson" END -->
-
 					<!-- Instructor detail START -->
 					<div class="col-12">
 						<div class="d-sm-flex justify-content-sm-between align-items-center">
@@ -211,16 +234,22 @@ Page content START -->
 							<div class="d-flex align-items-center">
 								<!-- Avatar image -->
 								<div class="avatar avatar-lg">
-									<%= image_tag "edu/avatar/05.jpg", class: "avatar-img rounded-circle", alt: "avatar" %>
+									<%= image_tag "mockups/training_01_avatar.png", class: "avatar-img rounded-circle", alt: "avatar" %>
 								</div>
 								<div class="ms-3">
-									<h6 class="mb-0"><a href="#">By Jacqueline Miller</a></h6>
-									<p class="mb-0 small">Founder Eduport company</p>
+									<h6 class="mb-0"><a href="#">Joachim Ferdinand Richardt</a></h6>
+									<p class="mb-0 small">Young museum</p>
 								</div>
 							</div>
 						</div>
 					</div>
 					<!-- Instructor detail END -->
+
+					<!-- Button "begin lesson" START -->
+					<div class="col-12 d-grid">
+						<%= link_to "inizia aula", "#", class: "btn btn-primary btn-lg" %>
+					</div>
+					<!-- Button "begin lesson" END -->
 
 					<!-- Course detail START -->
 					<div class="col-12">
@@ -313,7 +342,8 @@ Page content START -->
 						<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
 							<div class="offcanvas-header bg-dark">
 								<h5 class="offcanvas-title text-white" id="offcanvasSidebarLabel">Course playlist</h5>
-								<button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+								<button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark fa-lg"></i></button>
+								<%# <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> %>
 							</div>
 							<div class="offcanvas-body p-3 p-lg-0">
 								<div class="col-12">
@@ -528,7 +558,42 @@ Page content END -->
 
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
-					
+
+
+<!-- =======================
+Footer START -->
+<footer class="bg-dark p-3">
+	<div class="container">
+		<div class="row align-items-center">
+			<!-- Widget -->
+			<div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+				<!-- Logo START -->
+				<a href="index.html"> <img class="h-20px" src="assets/images/logo-light.svg" alt="logo"> </a>
+			</div>
+			
+			<!-- Widget -->
+			<div class="col-md-4 mb-3 mb-md-0">
+				<div class="text-center text-white">
+					Copyrights ©2021 <a href="#" class="text-reset btn-link">Eduport</a>. All rights reserved.
+				</div>
+			</div>
+			<!-- Widget -->
+			<div class="col-md-4">
+				<!-- Rating -->
+				<ul class="list-inline mb-0 text-center text-md-end">
+					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-facebook"></i></a></li>
+					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-instagram"></i></a></li>
+					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-linkedin-in"></i></a></li>
+					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-twitter"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- =======================
+Footer END -->
+
+
 <!-- Modal START -->
 <div class="modal fade" id="coursePremium" tabindex="-1" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-lg">

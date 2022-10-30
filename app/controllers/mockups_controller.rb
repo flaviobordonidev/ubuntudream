@@ -27,6 +27,10 @@ class MockupsController < ApplicationController
     render layout: 'edu_demo'
   end
 
+  def lessons_index
+    render layout: 'edu_demo'
+  end
+
   def lessons_show
     render layout: 'edu_demo'
   end

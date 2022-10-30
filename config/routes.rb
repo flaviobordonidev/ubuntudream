@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'mockups/edu_faq'
   get 'mockups/sign_in'
   get 'mockups/homepage'
+  get 'mockups/lessons_index'
   get 'mockups/lessons_show'
   get 'mockups/lessons_show_steps_show'
   get 'mockups/users_show'
