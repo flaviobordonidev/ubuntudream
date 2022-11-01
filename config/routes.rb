@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'mockups/lessons_show_steps_show'
   get 'mockups/users_show'
   get 'mockups/users_edit'
+  get 'mockups/users_index'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

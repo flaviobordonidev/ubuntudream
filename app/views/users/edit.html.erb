@@ -39,7 +39,7 @@ Page Banner START -->
 							</div>
 							<!-- Button -->
 							<div class="d-flex align-items-center mt-2 mt-md-0">
-								<a href="instructor-create-course.html" class="btn btn-success mb-0">Annulla ed esci</a>
+							  <%= link_to "Annulla ed esci", @user, class: "btn btn-success mb-0" %>
 							</div>
 						</div>
 					</div>
@@ -157,7 +157,7 @@ Footer START -->
 				<!-- Logo START -->
 				<!--<a href="index.html"> <img class="h-20px" src="assets/images/logo-light.svg" alt="logo"> </a>-->				
 				<%= link_to root_path do %>
-					<%= image_tag "logo/ubuntudream_logo.png", class: "h-20px", alt: "logo" %>
+					<%= image_tag "logo/ubuntudream_logo_inverted.png", class: "h-20px", alt: "logo" %>
 				<% end %>
 			</div>
 			
@@ -185,11 +185,3 @@ Footer END -->
 
 <!-- Back to top -->
 <div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
-
-
-<br>
-
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
-</div>

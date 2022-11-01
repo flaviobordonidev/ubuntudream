@@ -40,6 +40,11 @@ en:
         email: "Email" # fallback for when label is nil
         password: "Password" # fallback for when label is nil
         password_confirmation: "Password confirmation" # fallback for when label is nil
+      user/role:
+        admin: "administrator"
+        author: "author"
+        moderator: "moderator"
+        user: "user"
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'

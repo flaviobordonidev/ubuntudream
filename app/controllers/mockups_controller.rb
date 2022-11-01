@@ -46,4 +46,8 @@ class MockupsController < ApplicationController
   def users_edit
     render layout: 'edu_demo'
   end
+
+  def users_index
+    render layout: 'edu_demo'
+  end
 end

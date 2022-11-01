@@ -1,59 +1,94 @@
-<div id="<%= dom_id user %>">
 
-  <% if user.avatar_image.attached? %>
-    <p><%= image_tag user.avatar_image.variant(resize_to_limit: [100, 100]) %></p>
-  <% else %>
-    <p>Nessuna immagine presente</p>
-  <% end %>
+  <!-- Card item START -->
+  <div id="<%= dom_id user %>" class="col-md-6 col-xxl-4">
+    <div class="card bg-transparent border h-100"> 
+      <!-- Card header -->
+      <div class="card-header bg-transparent border-bottom d-flex justify-content-between">
+        <div class="d-sm-flex align-items-center">
+          <!-- Avatar -->
+          <div class="avatar avatar-md flex-shrink-0">
+            <%#= image_tag "edu/avatar/01.jpg", class: "avatar-img rounded-circle", alt: "avatar" %>
+            <% if user.avatar_image.attached? %>
+              <%= image_tag user.avatar_image.variant(resize_to_limit: [100, 100]), class: "avatar-img rounded-circle", alt: "avatar" %>
+            <% else %>
+              <!-- Avatar place holder -->
+              <%= image_tag "default/default_user.png", class: "avatar-img rounded-circle", alt: "avatar" %>
+            <% end %>
 
-  <p>
-    <strong>Username:</strong>
-    <%= user.username %>
-  </p>
+          </div>
+          <!-- Info -->
+          <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
+            <h5 class="mb-0"><a href="#"><%= user.first_name %> <%= user.last_name %> (<%= user.username %>)</a></h5>
+            <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i><%= user.location %> - <%= user.email %></span>
+          </div>
+        </div>
 
-  <p>
-    <strong>First name:</strong>
-    <%= user.first_name %>
-  </p>
+        <!-- Edit dropdown -->
+        <div class="dropdown text-end">
+          <a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare2" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-ellipsis fa-sm fa-fw"></i>
+          </a>
+          <!-- dropdown button -->
+          <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare2">
+            <li>
+              <%= link_to user, class: "dropdown-item" do %>
+                <i class="fas fa-pen-to-square fa-fw me-2"></i>Show
+              <% end %>
+            </li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-pen-to-square fa-fw me-2"></i>Edit</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fas fa-trash fa-fw me-2"></i>Remove</a></li>
+                  
+          </ul>
+        </div>
+      </div>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= user.last_name %>
-  </p>
+      <div class="card-body">
+        <!-- Payments -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="d-flex align-items-center">
+            <div class="icon-md bg-success bg-opacity-10 text-success rounded-circle flex-shrink-0"><i class="fas fa-money-bill fa-fw"></i></div>
+            <h6 class="mb-0 ms-2 fw-light">Payments</h6>
+          </div>
+          <span class="mb-0 fw-bold">$6,205</span>
+        </div>
 
-  <p>
-    <strong>Location:</strong>
-    <%= user.location %>
-  </p>
+        <!-- Role -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="d-flex align-items-center">
+            <div class="icon-md bg-purple bg-opacity-10 text-purple rounded-circle flex-shrink-0"><i class="fas fa-book fa-fw"></i></div>
+            <h6 class="mb-0 ms-2 fw-light">Role</h6>
+          </div>
+          <span class="mb-0 fw-bold"><%= user.role %></span>
+        </div>
 
-  <p>
-    <strong>Bio:</strong>
-    <%= user.bio %>
-  </p>
+        <!-- Progress -->
+        <div class="overflow-hidden">
+          <h6 class="mb-0">85%</h6>
+          <div class="progress progress-sm bg-primary bg-opacity-10">
+            <div class="progress-bar bg-primary aos" role="progressbar" data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000" data-aos-easing="ease-in-out" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <p>
-    <strong>Phone number:</strong>
-    <%= user.phone_number %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
-  </p>
-
-  <p>
-    <strong>Encrypted password:</strong>
-    <%= user.encrypted_password %>
-  </p>
-
-  <p>
-    <strong>Reset password token:</strong>
-    <%= user.reset_password_token %>
-  </p>
-
-  <p>
-    <strong>Remember created at:</strong>
-    <%= user.remember_created_at %>
-  </p>
-
-</div>
+      <!-- Card footer -->
+      <div class="card-footer bg-transparent border-top">
+        <div class="d-sm-flex justify-content-between align-items-center">
+          <!-- Rating star -->
+          <h6 class="mb-2 mb-sm-0">
+            <i class="fas fa-calendar fa-fw text-orange me-2"></i><span class="text-body">Join at:</span> 29 Aug 2021
+          </h6>
+          <!-- Buttons -->
+          <div class="text-end text-primary-hover">
+            <a href="#" class="btn btn-link text-body p-0 mb-0 me-2" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Message" aria-label="Message">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="#" class="btn btn-link text-body p-0 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Block" aria-label="Block">
+              <i class="fas fa-ban"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Card item END -->

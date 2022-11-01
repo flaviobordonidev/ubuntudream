@@ -1,6 +1,43 @@
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
 
+
+<!-- =======================
+Page Banner START -->
+<section class="bg-dark align-items-center d-flex" style="background:url(assets/images/pattern/04.png) no-repeat center center; background-size:cover;">
+  <!-- Main banner background image -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Title -->
+        <h1 class="text-white"><%= @user.username %></h1>
+
+        <!-- Breadcrumb -->
+        <div class="d-flex justify-content-between">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><%= link_to "Users", users_path %></li>
+              <li class="breadcrumb-item active" aria-current="page">User <%= @user.id %></li>
+            </ol>
+          </nav>
+					<!-- Buttons for Admin -->
+					<div class="d-flex align-items-center mt-2 mt-md-0">
+						<%= link_to "Edit this user", edit_user_path(@user, shown_fields: 'account'), class: "btn btn-success mb-0 mx-1" %>
+						<%= link_to "Edit this user password", edit_user_path(@user, shown_fields: 'password'), class: "btn btn-success mb-0 mx-1" %>
+						<%= link_to "Edit this user all", edit_user_path(@user, shown_fields: 'all'), class: "btn btn-success mb-0 mx-1" %>
+						<%= link_to "Back to users", users_path, class: "btn btn-success mb-0 mx-1" %>
+						<%= button_to "Destroy this user", @user, method: :delete, class: "btn btn-danger mb-0 mx-1" %>
+					</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =======================
+Page Banner END -->
+
+
 <!-- =======================
 Page content START -->
 <section class="pt-5 pb-0">
@@ -96,6 +133,11 @@ Page content START -->
 				<!-- Personal info -->
 				<ul class="list-group list-group-borderless">
 					<li class="list-group-item px-0">
+						<%# <span class="h6 fw-light"><i class="fas fa-fw fa-key text-primary me-1 me-sm-3"></i>Role:</span> %>
+						<span class="h6 fw-light"><i class="fas fa-fw fa-passport text-primary me-1 me-sm-3"></i>Role:</span>
+						<span><%= @user.role %></span>
+					</li>
+					<li class="list-group-item px-0">
 						<span class="h6 fw-light"><i class="fas fa-fw fa-map-marker-alt text-primary me-1 me-sm-3"></i>Address:</span>
 						<span><%= @user.location %></span>
 					</li>
@@ -179,7 +221,7 @@ Footer START -->
 				<!-- Logo START -->
 				<!--<a href="index.html"> <img class="h-20px" src="assets/images/logo-light.svg" alt="logo"> </a>-->
 				<%= link_to root_path do %>
-					<%= image_tag "logo/ubuntudream_logo.png", class: "h-20px", alt: "logo" %>
+					<%= image_tag "logo/ubuntudream_logo_inverted.png", class: "h-20px", alt: "logo" %>
 				<% end %>
 			</div>
 			
@@ -207,18 +249,3 @@ Footer END -->
 
 <!-- Back to top -->
 <div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>
-
-
-<p style="color: green"><%= notice %></p>
-
-
-
-
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user, shown_fields: 'account') %> |
-  <%= link_to "Edit this user password", edit_user_path(@user, shown_fields: 'password') %> |
-  <%= link_to "Edit this user all", edit_user_path(@user, shown_fields: 'all') %> |
-  <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
-</div>
