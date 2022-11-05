@@ -210,12 +210,18 @@ en:
     label:
       user:
         name: "User name"
+        first_name: "First name utente"
+        last_name: "Last name utente"
         email: "Email"
+        role: "Role"
+        location: "Location"
         password: "Password"
         password_confirmation: "Password confirmation"
     placeholder:
       user:
-        name: "User name"
+        username: "User Nickname"
+        first_name: "User first name"
+        last_name: "User last name"
         email: "Email"
         password: "Password"
         password_confirmation: "Password confirmation"

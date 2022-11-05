@@ -209,13 +209,19 @@ it:
   helpers:
     label:
       user:
-        name: "Nome utente"
+        username: "Soprannome utente"
+        first_name: "Nome utente"
+        last_name: "Cognome utente"
         email: "Email"
+        role: "Ruolo"
+        location: "Località"
         password: "Password"
         password_confirmation: "Conferma password"
     placeholder:
       user:
-        name: "Nome utente"
+        username: "Soprannome utente"
+        first_name: "Nome utente"
+        last_name: "Cognome utente"
         email: "Email"
         password: "Password"
         password_confirmation: "Conferma password"

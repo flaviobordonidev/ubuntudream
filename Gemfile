@@ -58,6 +58,9 @@ gem 'image_processing', '~> 1.12', '>= 1.12.2'
 # API clients for AWS S3 services. Comunicazione con Amazon Web Service S3 per ActiveStorage
 gem 'aws-sdk-s3', '~> 1.114', require: false
 
+# Agnostic pagination in plain ruby
+gem 'pagy', '~> 5.10', '>= 5.10.1'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
