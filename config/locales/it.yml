@@ -302,8 +302,8 @@ it:
       my_custom_long: "Questa è la mia data personalizzata %A %d %^B %Y alle %H:%M e %S secondi"
     pm: pm
 
-#-------------------------------------------------------------------------------
-# Controllers (in ordine alfabetico)
+  #----------------------------------------------------------------------------
+  # Controllers (in ordine alfabetico)
 
   eg_posts:
     not_published: "non è stato ancora pubblicato"
@@ -354,3 +354,9 @@ it:
     destroy:
       notice: "L'utente è stato eliminato con successo."
       notice_logged_in: "L'utente loggato non può essere eliminato."
+
+  #----------------------------------------------------------------------------
+  # Gems (in ordine alfabetico)
+
+  pundit:
+    you_are_not_authorized: "Non sei autorizzato a eseguire questa azione."

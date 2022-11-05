@@ -302,8 +302,8 @@ en:
       my_custom_long: "This is my custom date %A %d %^B %Y at %H:%M and %S seconds"
     pm: pm
 
-#-------------------------------------------------------------------------------
-# Controllers (in alphabetical order)
+  #----------------------------------------------------------------------------
+  # Controllers (in alphabetical order)
 
   eg_posts:
     not_published: "not yet published"
@@ -354,3 +354,9 @@ en:
     destroy:
       notice: "User was successfully destroyed."
       notice_logged_in: "The logged in user cannot be destroyed."
+
+  #----------------------------------------------------------------------------
+  # Gems (in alphabetical order)
+
+  pundit:
+    you_are_not_authorized: "You are not authorized to perform this action."

@@ -73,12 +73,19 @@
     </div>
 
     <!-- Role -->
-    <div class="col-md-6">
-      <%= form.label :role, class: "form-label" %>
-      <%#= form.select :role, User.roles.keys.map {|role| [role.titleize,role]}, {}, class: "form-control" %>
-      <%= form.select :role, User.roles.keys.map {|role| [User.human_attribute_name("role.#{role}"), role]}, {}, class: "form-control" %>
-      <%#= form.text_field :role, class: "form-control" %>
-    </div>
+    <% if current_user.admin? and @user != current_user %>
+      <div class="col-md-6">
+        <%= form.label :role, class: "form-label" %>
+        <%#= form.select :role, User.roles.keys.map {|role| [role.titleize,role]}, {}, class: "form-control" %>
+        <%= form.select :role, User.roles.keys.map {|role| [User.human_attribute_name("role.#{role}"), role]}, {}, class: "form-control" %>
+        <%#= form.text_field :role, class: "form-control" %>
+      </div>
+    <% end %>
+
+    <%#= form.text_field :language %>
+    <%#= form.select(:language, [["Lingua Italiana", "it"], ["Lingua Inglese", "en"]]) %>
+    <%#= form.select(:language, User.languages.keys.map {|language| [language,language]}) %>
+    <%#= form.select(:language, User.languages.keys.map {|language| [language.titleize,language]}) %>
 
     <!-- Location -->
     <div class="col-md-6">

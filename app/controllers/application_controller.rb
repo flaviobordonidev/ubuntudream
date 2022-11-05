@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   include Pagy::Backend
 
   #-----------------------------------------------------------------------------
@@ -23,5 +24,10 @@ class ApplicationController < ActionController::Base
       else
         I18n.locale = I18n.default_locale
       end
+    end
+
+    # Pundit rescue_from
+    def user_not_authorized
+      redirect_to request.referrer || root_path, notice: t("pundit.you_are_not_authorized")
     end
 end
