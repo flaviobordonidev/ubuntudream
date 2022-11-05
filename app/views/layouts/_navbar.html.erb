@@ -105,13 +105,13 @@
 			<!-- Profile navbar START -->
 			<div class="dropdown ms-1 ms-lg-0">
 				<a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-					<% if current_user.avatar_image.attached? %>            
-						<!-- Avatar image -->
-						<%= image_tag current_user.avatar_image.variant(resize_to_fit: [100, 100]), class: "avatar-img rounded-circle", alt: "avatar" %>
-					<% else %>
-						<!-- Avatar place holder -->
-						<%= image_tag "edu/avatar/01.jpg", class: "avatar-img rounded-circle", alt: "avatar" %>
-					<% end %>
+						<% if current_user.avatar_image.attached? %>          
+							<!-- Avatar image -->
+							<%= image_tag current_user.avatar_image.variant(resize_to_fit: [100, 100]), class: "avatar-img rounded-circle", alt: "avatar" %>
+						<% else %>
+							<!-- Avatar place holder -->
+							<%= image_tag "edu/avatar/01.jpg", class: "avatar-img rounded-circle", alt: "avatar" %>
+						<% end %>
 				</a>
 				<ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
 					<!-- Profile info -->

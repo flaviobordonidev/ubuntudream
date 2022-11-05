@@ -5,8 +5,8 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    #@users = User.all
     @pagy, @users = pagy(User.all, items: 2)
+    authorize @users
   end
 
   # GET /users/1 or /eg_users/1.json
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    authorize @user
   end
 
   # GET /users/1/edit
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
     @user = User.new(user_params)
+    authorize @user
 
     respond_to do |format|
       if @user.save
@@ -76,6 +78,7 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+      authorize @user
     end
 
     # Only allow a list of trusted parameters through.
