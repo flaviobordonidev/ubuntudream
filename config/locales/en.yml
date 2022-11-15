@@ -33,42 +33,53 @@
 # https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 
 en:
-  activerecord:
-    attributes:
-      user:
-        name: "User name" # fallback for when label is nil
-        email: "Email" # fallback for when label is nil
-        password: "Password" # fallback for when label is nil
-        password_confirmation: "Password confirmation" # fallback for when label is nil
-      user/role:
-        admin: "administrator"
-        author: "author"
-        moderator: "moderator"
-        user: "user"
-    errors:
-      messages:
-        record_invalid: 'Validation failed: %{errors}'
-        restrict_dependent_destroy:
-          has_one: Cannot delete record because a dependent %{record} exists
-          has_many: Cannot delete record because dependent %{record} exist
-      # models:
-      #   user: "user"
-      #     attributes:
-      #       name:
-      #         blank: ": field cannot be blank"
-      #       email:
-      #         blank: ": field cannot be blank"
-      #         invalid: ": not valid"
-      #       password:
-      #         blank: ": field cannot be blank"
-      #         too_short: ": too short"
-      #       password_confirmation:
-      #         confirmation: ": does not match with password"
-    models:
-      user: "user"
+
+  #----------------------------------------------------------------------------
+  # Globals (in alphabetical order)
+
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: 'Validation failed: %{errors}'
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      other_than: must be other than %{count}
+      present: must be blank
+      required: must exist
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"
+
   form_errors_message:
     one: "1 error prevented saving"
     other: "%{count} errors prevented saving"
+
   date:
     abbr_day_names:
     - Sun
@@ -122,6 +133,7 @@ en:
     - :month
     - :day
     - :year
+
   datetime:
     distance_in_words:
       about_x_hours:
@@ -168,72 +180,18 @@ en:
       day: Day
       month: Month
       year: Year
-  errors:
-    format: "%{attribute} %{message}"
-    messages:
-      accepted: must be accepted
-      blank: can't be blank
-      confirmation: doesn't match %{attribute}
-      empty: can't be empty
-      equal_to: must be equal to %{count}
-      even: must be even
-      exclusion: is reserved
-      greater_than: must be greater than %{count}
-      greater_than_or_equal_to: must be greater than or equal to %{count}
-      inclusion: is not included in the list
-      invalid: is invalid
-      less_than: must be less than %{count}
-      less_than_or_equal_to: must be less than or equal to %{count}
-      model_invalid: 'Validation failed: %{errors}'
-      not_a_number: is not a number
-      not_an_integer: must be an integer
-      odd: must be odd
-      other_than: must be other than %{count}
-      present: must be blank
-      required: must exist
-      taken: has already been taken
-      too_long:
-        one: is too long (maximum is 1 character)
-        other: is too long (maximum is %{count} characters)
-      too_short:
-        one: is too short (minimum is 1 character)
-        other: is too short (minimum is %{count} characters)
-      wrong_length:
-        one: is the wrong length (should be 1 character)
-        other: is the wrong length (should be %{count} characters)
-    template:
-      body: 'There were problems with the following fields:'
-      header:
-        one: 1 error prohibited this %{model} from being saved
-        other: "%{count} errors prohibited this %{model} from being saved"
-  helpers:
-    label:
-      user:
-        name: "User name"
-        first_name: "First name utente"
-        last_name: "Last name utente"
-        email: "Email"
-        role: "Role"
-        location: "Location"
-        password: "Password"
-        password_confirmation: "Password confirmation"
-    placeholder:
-      user:
-        username: "User Nickname"
-        first_name: "User first name"
-        last_name: "User last name"
-        email: "Email"
-        password: "Password"
-        password_confirmation: "Password confirmation"
-    select:
-      prompt: Please select
-    submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
-      user:
-        create: "Create %{model}"
-        update: "Update %{model}"
+
+  time:
+    am: am
+    formats:
+      default: "%a, %d %b %Y %I:%M:%S %p %Z"
+      long: "%B %d, %Y %I:%M %p"
+      short: "%d %b %I:%M %p"
+      long_phrase: "%A %d %^B %Y at %H:%M and %S seconds"
+      short_phrase: "The day %d %^B %Y"
+      my_custom_long: "This is my custom date %A %d %^B %Y at %H:%M and %S seconds"
+    pm: pm
+
   number:
     currency:
       format:
@@ -286,24 +244,81 @@ en:
     precision:
       format:
         delimiter: ''
+
   support:
     array:
       last_word_connector: ", and "
       two_words_connector: " and "
       words_connector: ", "
-  time:
-    am: am
-    formats:
-      default: "%a, %d %b %Y %I:%M:%S %p %Z"
-      long: "%B %d, %Y %I:%M %p"
-      short: "%d %b %I:%M %p"
-      long_phrase: "%A %d %^B %Y at %H:%M and %S seconds"
-      short_phrase: "The day %d %^B %Y"
-      my_custom_long: "This is my custom date %A %d %^B %Y at %H:%M and %S seconds"
-    pm: pm
 
   #----------------------------------------------------------------------------
-  # Controllers (in alphabetical order)
+  # helpers and activerecord (in alphabetical order)
+
+  helpers:
+    label:
+      user:
+        name: "User name"
+        first_name: "First name utente"
+        last_name: "Last name utente"
+        email: "Email"
+        role: "Role"
+        location: "Location"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+    placeholder:
+      user:
+        username: "User Nickname"
+        first_name: "User first name"
+        last_name: "User last name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+      user:
+        create: "Create %{model}"
+        update: "Update %{model}"
+
+  activerecord:
+    attributes:
+      user:
+        name: "User name" # fallback for when label is nil
+        email: "Email" # fallback for when label is nil
+        password: "Password" # fallback for when label is nil
+        password_confirmation: "Password confirmation" # fallback for when label is nil
+      user/role:
+        admin: "administrator"
+        author: "author"
+        moderator: "moderator"
+        user: "user"
+    errors:
+      messages:
+        record_invalid: 'Validation failed: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Cannot delete record because a dependent %{record} exists
+          has_many: Cannot delete record because dependent %{record} exist
+      # models:
+      #   user: "user"
+      #     attributes:
+      #       name:
+      #         blank: ": field cannot be blank"
+      #       email:
+      #         blank: ": field cannot be blank"
+      #         invalid: ": not valid"
+      #       password:
+      #         blank: ": field cannot be blank"
+      #         too_short: ": too short"
+      #       password_confirmation:
+      #         confirmation: ": does not match with password"
+    models:
+      user: "user"
+
+  #----------------------------------------------------------------------------
+  # Controllers/views (in alphabetical order)
 
   eg_posts:
     not_published: "not yet published"
@@ -354,6 +369,13 @@ en:
     destroy:
       notice: "User was successfully destroyed."
       notice_logged_in: "The logged in user cannot be destroyed."
+    sessions:
+      new:
+        welcome_title: "Welcome to UbuntuDream"
+        welcome_subtitle: "Let's work a little with our imagination ^ _ ^"
+        social_proof: "Many students have already joined us, now it's your turn."
+        login_title: "Login into UbuntuDream!"
+        login_subtitle: "Nice to see you! Please log in with your account."
 
   #----------------------------------------------------------------------------
   # Gems (in alphabetical order)

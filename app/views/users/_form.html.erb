@@ -87,6 +87,17 @@
     <%#= form.select(:language, User.languages.keys.map {|language| [language,language]}) %>
     <%#= form.select(:language, User.languages.keys.map {|language| [language.titleize,language]}) %>
 
+    <div class="col-md-6">
+<select title="Select your surfboard" class="selectpicker">
+  <option>Select...</option>
+  <option data-thumbnail="<%= image_path('edu/avatar/02.jpg') %>">Chrome</option>
+  <option data-thumbnail="images/icon-firefox.png">Firefox</option>
+  <option data-thumbnail="images/icon-ie.png">IE</option>
+  <option data-thumbnail="images/icon-opera.png">Opera</option>
+  <option data-thumbnail="images/icon-safari.png">Safari</option>
+</select>
+    </div>
+
     <!-- Location -->
     <div class="col-md-6">
       <%= form.label :location, class: "form-label" %>

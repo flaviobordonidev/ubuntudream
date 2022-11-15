@@ -32,12 +32,16 @@
           <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare2">
             <li>
               <%= link_to user, class: "dropdown-item" do %>
-                <i class="fas fa-pen-to-square fa-fw me-2"></i>Show
+                <i class="fas fa-eye fa-fw me-2"></i>Show
               <% end %>
             </li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-pen-to-square fa-fw me-2"></i>Edit</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-trash fa-fw me-2"></i>Remove</a></li>
-                  
+            <li>
+              <%= link_to edit_user_path(user, shown_fields: 'account'), class: "dropdown-item" do %>
+                <i class="fas fa-pen-to-square fa-fw me-2"></i>Edit
+              <% end %>
+            </li>
+            <%# <li><a class="dropdown-item" href="#"><i class="fas fa-pen-to-square fa-fw me-2"></i>Edit</a></li> %>
+            <%# <li><a class="dropdown-item" href="#"><i class="fas fa-trash fa-fw me-2"></i>Remove</a></li>                   %>
           </ul>
         </div>
       </div>

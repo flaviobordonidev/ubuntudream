@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @pagy, @users = pagy(User.all, items: 2)
+    @pagy, @users = pagy(User.all, items: 6)
     authorize @users
   end
 

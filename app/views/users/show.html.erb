@@ -153,7 +153,19 @@ Page content START -->
 						<span class="h6 fw-light"><i class="fas fa-fw fa-globe text-primary me-1 me-sm-3"></i>Website:</span>
 						<span>https://eduport.webestica.com/</span>
 					</li>
+					<li class="list-group-item px-0">
+						<span class="h6 fw-light"><i class="fas fa-fw fa-person text-primary me-1 me-sm-3"></i>Cartoon avatar:</span>
+					</li>
 				</ul>
+
+				<!-- Cartoon_avatar START -->
+				<div class="row mt-0 g-3">
+					<div class="col-sm-6 col-lg-4">
+						<%# <span class="h6 fw-light"><i class="fas fa-fw fa-person text-primary me-1 me-sm-3"></i>Cartoon avatar:</span> %>
+						<%= image_tag "cartoon_avatar/#{@user.id}.png", class: "avatar-img rounded-circle", alt: "Cartoon avatar" %>
+					</div>
+				</div>
+				<!-- Cartoon_avatar END -->
 
 				<!-- Counter START -->
 				<div class="row mt-4 g-3">
