@@ -19,4 +19,11 @@ class Step < ApplicationRecord
   # == Class Methods ========================================================
 
   # == Instance Methods =====================================================
+  def next
+    lesson.steps.where("id > ?", id).first
+  end
+
+  def prev
+    lesson.steps.where("id < ?", id).last
+  end
 end

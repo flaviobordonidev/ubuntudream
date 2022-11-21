@@ -44,7 +44,14 @@ class StepsController < ApplicationController
     respond_to do |format|
       if @step.update(step_params)
         #format.html { redirect_to step_url(@step), notice: "Step was successfully updated." }
-        format.html { redirect_to lesson_step_path(@lesson), notice: 'Step was successfully updated.' }
+        #format.html { redirect_to lesson_step_path(@lesson), notice: 'Step was successfully updated.' }
+        format.html do 
+          if @step.next.present?
+            redirect_to lesson_step_path(@lesson, @step.next.id), notice: 'Step was successfully updated.' 
+          else
+            redirect_to lesson_step_path(@lesson), notice: 'Step was successfully updated. - Ultima risposta'
+          end
+        end
         format.json { render :show, status: :ok, location: @step }
       else
         format.html { render :edit, status: :unprocessable_entity }

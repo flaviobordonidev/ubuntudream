@@ -2,7 +2,41 @@
 
 <%= render @step %>
 
+<br/>---------------<br/>
+
+<%= form_with(model: [@lesson, @step]) do |form| %>
+  <% if @step.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@step.errors.count, "error") %> prohibited this step from being saved:</h2>
+
+      <ul>
+        <% @step.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :answer, style: "display: block" %>
+    <%= form.text_area :answer %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<br/>---------------<br/>
+
 <div>
+  <%= @step.prev.id if @step.prev.present? %>
+  <%= link_to '<Prev', lesson_step_path(@lesson, @step.prev.id) if @step.prev.present? %>
+  <%= @step.id %>
+  <%= link_to 'Next>', lesson_step_path(@lesson, @step.next.id) if @step.next.present? %>
+  <%= @step.next.id if @step.next.present? %>
+  <br/>
+
   <%#= link_to "Edit this step", edit_step_path(@step) %>
   <%= link_to 'Edit this step', edit_lesson_step_path(@lesson, @step) %> |
   <%#= link_to "Back to steps", steps_path %>
