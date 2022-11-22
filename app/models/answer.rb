@@ -1,4 +1,4 @@
-class Step < ApplicationRecord
+class Answer < ApplicationRecord
   # == Constants ============================================================
   
   # == Extensions ===========================================================
@@ -8,11 +8,7 @@ class Step < ApplicationRecord
   # == Relationships ========================================================
 
   ## many-to-one
-  belongs_to :lesson
-
-  ## one-to-many
-  has_many :answers, dependent: :destroy
-  accepts_nested_attributes_for :answers, allow_destroy: true, reject_if: proc{ |attr| attr['content'].blank? }
+  belongs_to :step
 
   # == Validations ==========================================================
 
@@ -23,11 +19,4 @@ class Step < ApplicationRecord
   # == Class Methods ========================================================
 
   # == Instance Methods =====================================================
-  def next
-    lesson.steps.where("id > ?", id).first
-  end
-
-  def prev
-    lesson.steps.where("id < ?", id).last
-  end
 end

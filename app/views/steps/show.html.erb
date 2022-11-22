@@ -28,6 +28,30 @@
 <% end %>
 
 <br/>---------------<br/>
+---------------<br/>
+
+<p>
+  <strong>Answers in Answers Table</strong>
+  <ul>
+    <% @step.answers.each do |answer| %>
+      <li>
+        <%= answer.content %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<%= form_with(model: [@lesson, @step], local: true) do |form| %>
+  <!-- Creiamo nuovo Record -->
+  <%= form.fields_for :answers, Answer.new do |answer| %>
+    <%= render "answer_fields", form: answer %>
+  <% end %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<br/>---------------<br/>
 
 <div>
   <%= @step.prev.id if @step.prev.present? %>
