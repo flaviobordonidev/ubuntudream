@@ -9,6 +9,7 @@ class Answer < ApplicationRecord
 
   ## many-to-one
   belongs_to :step
+  belongs_to :user
 
   # == Validations ==========================================================
 

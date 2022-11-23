@@ -35,7 +35,7 @@
   <ul>
     <% @step.answers.each do |answer| %>
       <li>
-        <%= answer.content %>
+        <%= answer.content %> - by <%= answer.user.username %>
       </li>
     <% end %>
   </ul>

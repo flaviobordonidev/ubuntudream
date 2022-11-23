@@ -84,6 +84,6 @@ class StepsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def step_params
-      params.require(:step).permit(:question, :answer, :lesson_id, answers_attributes: [:_destroy, :id, :content])
+      params.require(:step).permit(:question, :answer, :lesson_id, answers_attributes: [:_destroy, :id, :content, :user_id])
     end
 end
