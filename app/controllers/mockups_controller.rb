@@ -50,4 +50,8 @@ class MockupsController < ApplicationController
   def users_index
     render layout: 'edu_demo'
   end
+
+  def youtube_player
+    render layout: 'basic'
+  end
 end

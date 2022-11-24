@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'mockups/users_show'
   get 'mockups/users_edit'
   get 'mockups/users_index'
+  get 'mockups/youtube_player'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
