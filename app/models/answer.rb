@@ -14,6 +14,8 @@ class Answer < ApplicationRecord
   # == Validations ==========================================================
 
   # == Scopes ===============================================================
+  
+  scope :current_user_answers, -> { where(user_id: current_user.id) }
 
   # == Callbacks ============================================================
 

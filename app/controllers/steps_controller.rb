@@ -1,4 +1,5 @@
 class StepsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_lesson
   before_action :set_step, only: %i[ show edit update destroy ]
 
@@ -6,6 +7,7 @@ class StepsController < ApplicationController
   def index
     #@steps = Step.all
     @steps = @lesson.steps
+    authorize @steps
   end
 
   # GET /steps/1 or /steps/1.json
@@ -16,6 +18,7 @@ class StepsController < ApplicationController
   def new
     #@step = Step.new
     @step = @lesson.steps.new
+    authorize @step
   end
 
   # GET /steps/1/edit
@@ -26,6 +29,7 @@ class StepsController < ApplicationController
   def create
     #@step = Step.new(step_params)
     @step = @lesson.steps.new(step_params)
+    authorize @step
 
     respond_to do |format|
       if @step.save
@@ -80,10 +84,11 @@ class StepsController < ApplicationController
     def set_step
       #@step = Step.find(params[:id])
       @step = @lesson.steps.find(params[:id])
+      authorize @step
     end
 
     # Only allow a list of trusted parameters through.
     def step_params
-      params.require(:step).permit(:question, :answer, :lesson_id, answers_attributes: [:_destroy, :id, :content, :user_id])
+      params.require(:step).permit(:question, :lesson_id, answers_attributes: [:_destroy, :id, :content, :user_id])
     end
 end
