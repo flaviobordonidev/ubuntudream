@@ -1,19 +1,91 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @step %>
-
 <p>
-  <strong>Answers of logged User</strong>
-  <ul>
-    <% @step.answers.where(user_id: current_user.id).each do |answer| %>
-      <li>
-        <%= answer.content %> - by <%= answer.user.username %>
-      </li>
-    <% end %>
-  </ul>
+  <strong>Lesson:</strong>
+  <%#= step.lesson_id %>
+  <%= @step.lesson.name %>
 </p>
 
-<%= form_with(model: [@lesson, @step], local: true) do |form| %>
+<% fbvalue = "QwG30ZZFSyI" if @step.id == 1 %>
+<% fbvalue = "0Nm5AvhKpQQ" if @step.id == 2 %>
+<% fbvalue = "5ZKcIbWxhh0" if @step.id == 6 %>
+
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+<div id="player"></div>
+
+<ul id="player-commands-list"></ul>
+
+<script>
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      //videoId: 'M7lc1UVf-VE',
+      videoId: '<%= @step.youtube_video_id %>',
+      playerVars: {
+        'playsinline': 1
+      },
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+      console.log("PLAYING");
+      let pcl = document.getElementById('player-commands-list'); // mettiamo su una variabile il tag <ul id="player-commands-list"></ul>
+      let li = document.createElement('li'); // creiamo un nuovo tag <li></li>
+      li.textContent = 'PLAYING'; // inseriamo il valore tra il tag <li></li>
+      pcl.insertBefore(li, pcl.firstElementChild); // insert a new node before the first list item
+    }
+    if (event.data == YT.PlayerState.PAUSED) {          
+      console.log("PAUSED");
+      let pcl = document.getElementById('player-commands-list'); // mettiamo su una variabile il tag <ul id="player-commands-list"></ul>
+      let li = document.createElement('li'); // creiamo un nuovo tag <li></li>
+      li.textContent = 'PAUSED'; // inseriamo il valore tra il tag <li></li>
+      pcl.insertBefore(li, pcl.firstElementChild); // insert a new node before the first list item
+    }
+    if (event.data == YT.PlayerState.ENDED) {
+      console.log("ENDED - Evviva ^_^");
+      let pcl = document.getElementById('player-commands-list'); // mettiamo su una variabile il tag <ul id="player-commands-list"></ul>
+      let li = document.createElement('li'); // creiamo un nuovo tag <li></li>
+      li.textContent = 'ENDED - Evvaaai *_*'; // inseriamo il valore tra il tag <li></li>
+      pcl.insertBefore(li, pcl.firstElementChild); // insert a new node before the first list item
+      let playerDiv = document.getElementById('player') // prendiamo il tag con id="player"
+      playerDiv.style.display = "none" //Nascondiamo il player
+      let formTest = document.getElementById('answer-form') // prendiamo il tag con id="answer-form"
+      formTest.style.display = "block" //Mostriamo il form
+    }
+  }
+</script>
+
+<p style="color: green"><%= notice %></p>
+
+<%#= render @step %>
+
+
+<%= form_with(model: [@lesson, @step], local: true, id: "answer-form", html: {'data-turbo': "false", style: "display: none;"}) do |form| %>
+  <p>
+    <strong>Question:</strong>
+    <%= @step.question %>
+  </p>
+
   <!-- Creiamo nuovo Record -->
   <%= form.fields_for :answers, Answer.new do |answer| %>
     <%= render "answer_fields", form: answer %>
@@ -27,9 +99,9 @@
 
 <div>
   <%= @step.prev.id if @step.prev.present? %>
-  <%= link_to '<Prev', lesson_step_path(@lesson, @step.prev.id) if @step.prev.present? %>
+  <%= link_to '<Prev', lesson_step_path(@lesson, @step.prev.id), 'data-turbo': false if @step.prev.present? %>
   <%= @step.id %>
-  <%= link_to 'Next>', lesson_step_path(@lesson, @step.next.id) if @step.next.present? %>
+  <%= link_to 'Next>', lesson_step_path(@lesson, @step.next.id), 'data-turbo': false if @step.next.present? %>
   <%= @step.next.id if @step.next.present? %>
   <br/>
 
