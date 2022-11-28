@@ -12,6 +12,7 @@ class StepsController < ApplicationController
 
   # GET /steps/1 or /steps/1.json
   def show
+    render layout: 'full_screen'
   end
 
   # GET /steps/new
