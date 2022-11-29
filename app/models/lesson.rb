@@ -5,6 +5,13 @@ class Lesson < ApplicationRecord
 
   # == Attributes ===========================================================
 
+  ## ActiveText
+  has_rich_text :description_rtf
+
+  ## ActiveStorage
+  has_one_attached :picture_image
+  has_one_attached :picture_author_image
+
   # == Relationships ========================================================
 
   ## one-to-many
