@@ -171,17 +171,20 @@ Page Banner START -->
               <li class="breadcrumb-item active" aria-current="page">User 1</li>
             </ol>
           </nav>
+
 					<!-- Buttons for Admin -->
 					<div class="d-flex align-items-center mt-2 mt-md-0">
-						<a href="instructor-create-course.html" class="btn btn-success mb-0 mx-1">AnnullaZ ed esci</a>
-						<a href="instructor-create-course.html" class="btn btn-success mb-0 mx-1">AnnullaZ ed esci</a>
+						<a href="#" class="btn btn-success mb-0 mx-1"> Edit this user</a>
+						<a href="#" class="btn btn-success mb-0 mx-1"> Edit this user password</a>
+						<a href="#" class="btn btn-success mb-0 mx-1"> Edit this user all</a>
+						<a href="#" class="btn btn-success mb-0 mx-1"> Back to users</a>
+						<a href="#" class="btn btn-danger mb-0 mx-1"> Destroy this user</a>
 
-
-						<%= link_to "Edit this user", edit_user_path(@user, shown_fields: 'account'), class: "btn btn-success mb-0 mx-1" %>
-						<%= link_to "Edit this user password", edit_user_path(@user, shown_fields: 'password'), class: "btn btn-success mb-0 mx-1" %>
-						<%= link_to "Edit this user all", edit_user_path(@user, shown_fields: 'all'), class: "btn btn-success mb-0 mx-1" %>
-						<%= link_to "Back to users", users_path, class: "btn btn-success mb-0 mx-1" %>
-						<%= button_to "Destroy this user", @user, method: :delete, class: "btn btn-danger mb-0 mx-1" %>
+						<%#= link_to "Edit this user", edit_user_path(@user, shown_fields: 'account'), class: "btn btn-success mb-0 mx-1" %>
+						<%#= link_to "Edit this user password", edit_user_path(@user, shown_fields: 'password'), class: "btn btn-success mb-0 mx-1" %>
+						<%#= link_to "Edit this user all", edit_user_path(@user, shown_fields: 'all'), class: "btn btn-success mb-0 mx-1" %>
+						<%#= link_to "Back to users", users_path, class: "btn btn-success mb-0 mx-1" %>
+						<%#= button_to "Destroy this user", @user, method: :delete, class: "btn btn-danger mb-0 mx-1" %>
 
 
 

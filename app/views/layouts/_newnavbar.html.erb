@@ -27,20 +27,61 @@
         <!-- Nav Main menu START -->
 				<ul class="navbar-nav navbar-nav-scroll mx-auto">
 
-					<!-- Nav item 1 Lessons -->
+					<!-- Nav item 1 Gratitude -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="gratitudeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<a class="nav-link dropdown-toggle" href="#" id="gratitudeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gratitude</a>
 						<ul class="dropdown-menu" aria-labelledby="gratitudeMenu">
-							<li> <%= link_to "All levels", lessons_path, class: "dropdown-item" %> </li>
-							<li> <%= link_to "Beginner", lessons_path, class: "dropdown-item" %> </li>
-							<li> <%= link_to "Intermediate", lessons_path, class: "dropdown-item" %> </li>
-							<li>  </li>
+							<li> <a class="dropdown-item" href="index.html">All</a></li>
+							<li> <a class="dropdown-item" href="index-2.html">Lunapark - Tenda di Kiro</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">Passeggiando al parco</a></li>
+							<li> <a class="dropdown-item" href="index-4.html">Oasi nel deserto</a></li>
+							<li> <a class="dropdown-item" href="index-5.html">Nello spazio</a></li>
+							<li> <a class="dropdown-item" href="index-6.html">Castello scozzese</a></li>
 							<li> <hr class="dropdown-divider"></li>
-							<li> 
-								<%= link_to lessons_path, class: "dropdown-item" do %>
-									Advanced <span class="badge bg-success ms-2 smaller">New</span>
-								<% end %>
-							</li>
+							<li> <a class="dropdown-item" href="index-7.html">Altre ambientazioni <span class="badge bg-success ms-2 smaller">New</span></a></li>
+						</ul>
+					</li>
+
+					<!-- Nav item 2 Training -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="trainingMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Training</a>
+						<ul class="dropdown-menu" aria-labelledby="trainingMenu">
+							<li> <a class="dropdown-item" href="index.html">All painting</a></li>
+							<li> <a class="dropdown-item" href="index-2.html">All audio</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">nature</a></li>
+							<li> <a class="dropdown-item" href="index-4.html">city</a></li>
+							<li> <a class="dropdown-item" href="index-5.html">home</a></li>
+						</ul>
+					</li>
+
+
+					<!-- Nav item 3 Dissociation -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dissociationMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dissociation</a>
+						<ul class="dropdown-menu" aria-labelledby="dissociationMenu">
+							<li> <a class="dropdown-item" href="index.html">All</a></li>
+							<li> <a class="dropdown-item" href="index-2.html">vincere la paura</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">vedersi da fuori</a></li>
+						</ul>
+					</li>
+
+					<!-- Nav item 4 Introspection -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="introspectionMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Introspection</a>
+						<ul class="dropdown-menu" aria-labelledby="introspectionMenu">
+							<li> <a class="dropdown-item" href="index.html">All</a></li>
+							<li> <a class="dropdown-item" href="index-2.html">1 - Tornare a sognare</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">2 - Chiarezza</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">3 - Proposito e Motivazione</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">4 - Identità</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">5 - Valori</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">6 - Convinzioni ed Emozioni</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">7 - Interpretare</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">8 - Liberare</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">9 - Potenziare</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">10 - Pianificare</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">11 - Decidere ed Agire</a></li>
+							<li> <a class="dropdown-item" href="index-3.html">12 - Verificare e Celebrare</a></li>
 						</ul>
 					</li>
 
@@ -48,14 +89,14 @@
 				<!-- Nav Main menu END -->
 
 				<!-- Nav Search START -->
-				<%# <div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
+				<div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
 					<div class="nav-item w-100">
 						<form class="position-relative">
 							<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
 							<button class="btn bg-transparent px-2 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6 "></i></button>
 						</form>
 					</div>
-				</div> %>
+				</div>
 				<!-- Nav Search END -->
 
 			</div>

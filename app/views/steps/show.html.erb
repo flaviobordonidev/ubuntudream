@@ -144,7 +144,7 @@
 						<div class="card-body">
 							<div class="d-grid">
 							<%# <div class="d-sm-flex justify-content-sm-between"> %>
-								<a href="course-detail.html" class="btn btn-danger-soft mb-0">Esci dalla Lezione</a>
+								<%= link_to 'Esci dalla Lezione', [@step.lesson], class: "btn btn-danger-soft mb-0" %>
 								<!--<h5>Lezioni complementari</h5>-->
 								<!-- Button -->
 								<%# <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#Notemodal">
@@ -389,7 +389,7 @@
 
 						<div class="card-footer">
 							<div class="d-grid">
-								<a href="course-detail.html" class="btn btn-danger-soft mb-0">Esci dalla Lezione</a>
+								<%= link_to 'Esci dalla Lezione', [@step.lesson], class: "btn btn-danger-soft mb-0" %>
 							</div>
 						</div>
 					</div>
