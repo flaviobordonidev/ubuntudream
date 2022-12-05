@@ -41,11 +41,11 @@ class AnswerPolicy < ApplicationPolicy
     if @user.present?
       case @user.role
       when 'user'
-        @user.id == @record.user_id
+        true
       when 'author'
-        @user.id == @record.user_id
+        true
       when 'moderator'
-        @user.id == @record.user_id
+        true
       when 'admin'
         true
       else
@@ -60,11 +60,11 @@ class AnswerPolicy < ApplicationPolicy
     if @user.present?
       case @user.role
       when 'user'
-        @user.id == @record.user_id
+        true
       when 'author'
-        @user.id == @record.user_id
+        true
       when 'moderator'
-        @user.id == @record.user_id
+        true
       when 'admin'
         true
       else
