@@ -14,14 +14,31 @@ Page Banner START -->
         <!-- Title -->
         <h1 class="text-white"><%= @lesson.name %></h1>
         <!-- Breadcrumb -->
-        <div class="d-flex">
+        <div class="d-flex justify-content-between">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Courses</a></li>
+              <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+              <li class="breadcrumb-item"><%= link_to "Lessons", lessons_path %></li>							  
               <li class="breadcrumb-item active" aria-current="page">lesson <%= @lesson.id %></li>
             </ol>
           </nav>
+
+					<!-- Buttons for Admin -->
+					<% if current_user.admin? %>
+					<div class="d-flex align-items-center mt-2 mt-md-0">
+						<%= link_to "Show all steps of this lesson", lesson_steps_path(@lesson), class: "btn btn-success mb-0 mx-1" %>
+						<%= link_to 'Add New Step', new_lesson_step_path(@lesson), class: "btn btn-success mb-0 mx-1" %>
+						<%= link_to "Edit this lesson", edit_lesson_path(@lesson), class: "btn btn-warning mb-0 mx-1" %> |
+						<%= button_to "Destroy this lesson", @lesson, method: :delete, class: "btn btn-danger mb-0 mx-1" %>
+
+						<%#= link_to "Edit this user", edit_user_path(@user, shown_fields: 'account'), class: "btn btn-success mb-0 mx-1" %>
+						<%#= link_to "Edit this user password", edit_user_path(@user, shown_fields: 'password'), class: "btn btn-success mb-0 mx-1" %>
+						<%#= link_to "Edit this user all", edit_user_path(@user, shown_fields: 'all'), class: "btn btn-success mb-0 mx-1" %>
+						<%#= link_to "Back to users", users_path, class: "btn btn-success mb-0 mx-1" %>
+						<%#= button_to "Destroy this user", @user, method: :delete, class: "btn btn-danger mb-0 mx-1" %>
+					</div>
+					<% end %>
+
         </div>
       </div>
     </div>
@@ -107,7 +124,11 @@ Page content START -->
 
 					<!-- Button "begin lesson" START -->
 					<div class="col-12 d-grid">
-						<%= link_to "inizia aula", lesson_step_path(@lesson, @lesson.steps.first), class: "btn btn-primary btn-lg", 'data-turbo': false %>
+						<% if @lesson.steps.first.present? %>
+							<%= link_to "inizia aula", lesson_step_path(@lesson, @lesson.steps.first), class: "btn btn-primary btn-lg", 'data-turbo': false %>
+						<% else %>
+							<%= link_to "Show all steps of this lesson", lesson_steps_path(@lesson), class: "btn btn-primary btn-lg", 'data-turbo': false %>
+						<% end %>
 					</div>
 					<!-- Button "begin lesson" END -->
 
@@ -416,20 +437,4 @@ Page content END -->
 
 
 
-
-
-
-
 <p style="color: green"><%= notice %></p>
-
-<%= render @lesson %>
-
-<div>
-  <%= link_to "Show all steps of this lesson", lesson_steps_path(@lesson) %> | 
-  <%= link_to 'Add New Step', new_lesson_step_path(@lesson) %> || 
-
-  <%= link_to "Edit this lesson", edit_lesson_path(@lesson) %> |
-  <%= link_to "Back to lessons", lessons_path %>
-
-  <%= button_to "Destroy this lesson", @lesson, method: :delete %>
-</div>

@@ -1,4 +1,3 @@
-
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
 
@@ -10,17 +9,19 @@ Page Banner START -->
     <div class="row">
       <div class="col-12">
         <!-- Title -->
-        <h1 class="text-white">Course List Classic</h1>
+        <h1 class="text-white">List of lessons</h1>
+
         <!-- Breadcrumb -->
-        <div class="d-flex">
+        <div class="d-flex justify-content-between">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-dark breadcrumb-dots mb-0">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Courses</li>
+              <li class="breadcrumb-item active" aria-current="page">Lessons</li>
             </ol>
           </nav>
 
 					<!-- Buttons for Admin -->
+					<% if current_user.admin? %>
 					<div class="d-flex align-items-center mt-2 mt-md-0">
             <%= link_to "New lesson", new_lesson_path, class: "btn btn-success mb-0 mx-1" %>
 
@@ -30,6 +31,7 @@ Page Banner START -->
 						<%#= link_to "Back to users", users_path, class: "btn btn-success mb-0 mx-1" %>
 						<%#= button_to "Destroy this user", @user, method: :delete, class: "btn btn-danger mb-0 mx-1" %>
 					</div>
+          <% end %>
 
         </div>
       </div>
@@ -64,12 +66,7 @@ Page content START -->
         <div id="lessons">
           <% @lessons.each do |lesson| %>
             <%= render lesson %>
-            <p>
-              <%= link_to "Show all steps of this lesson", lesson_steps_path(lesson) %> | 
-              <%= link_to 'Add New Step', new_lesson_step_path(lesson) %> |
-              <%= link_to "Show this lesson", lesson %>
-            </p>
-            <hr/>
+            <br/>
           <% end %>
         </div>
         <!-- Course list END -->
@@ -77,14 +74,7 @@ Page content START -->
         <!-- Pagination START -->
         <div class="col-12">
           <nav class="mt-4 d-flex justify-content-center" aria-label="navigation">
-            <ul class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-              <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-double-left"></i></a></li>
-              <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
-              <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
-              <li class="page-item mb-0"><a class="page-link" href="#">..</a></li>
-              <li class="page-item mb-0"><a class="page-link" href="#">6</a></li>
-              <li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a></li>
-            </ul>
+            <%= render 'pagy/nav_edu', pagy: @pagy %>
           </nav>
         </div>
         <!-- Pagination END -->
@@ -115,7 +105,7 @@ Page content START -->
                     </li>
                     <!-- Category Item -->
                     <li class="list-inline-item mb-2">
-                      <input type="checkbox" class="btn-check" id="btn-check-9">
+                      <input type="checkbox" class="btn-check" id="btn-check-9" checked>
                       <label class="btn btn-light btn-primary-soft-check" for="btn-check-9">Training</label>
                     </li>
                     <!-- Category Item -->

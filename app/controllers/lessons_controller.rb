@@ -4,7 +4,8 @@ class LessonsController < ApplicationController
 
   # GET /lessons or /lessons.json
   def index
-    @lessons = Lesson.all
+    #@lessons = Lesson.all
+    @pagy, @lessons = pagy(Lesson.all, items: 6)
     authorize @lessons
   end
 
