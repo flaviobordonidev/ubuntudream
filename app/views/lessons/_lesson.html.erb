@@ -26,7 +26,7 @@
 
             <!-- Title -->
             <h5 class="card-title">
-              <%= link_to lesson.name, root_path %>
+              <%= link_to lesson.name, lesson %>
             </h5>
             <p class="text-truncate-2 d-none d-lg-block"><%= lesson.description_rtf.to_plain_text.truncate(160, separator: ' ') %></p>
 

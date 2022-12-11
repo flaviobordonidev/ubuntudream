@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Preparatories</h1>
+
+<div id="preparatories">
+  <% @preparatories.each do |preparatory| %>
+    <%= render preparatory %>
+    <p>
+      <%= link_to "Show this preparatory", preparatory %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New preparatory", new_preparatory_path %>

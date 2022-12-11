@@ -1,0 +1,32 @@
+<%= form_with(model: preparatory) do |form| %>
+  <% if preparatory.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(preparatory.errors.count, "error") %> prohibited this preparatory from being saved:</h2>
+
+      <ul>
+        <% preparatory.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :duration, style: "display: block" %>
+    <%= form.number_field :duration %>
+  </div>
+
+  <div>
+    <%= form.label :youtube_video_id, style: "display: block" %>
+    <%= form.text_field :youtube_video_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

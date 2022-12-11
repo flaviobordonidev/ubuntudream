@@ -1,0 +1,2 @@
+module PreparatoriesHelper
+end

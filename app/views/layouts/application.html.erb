@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="light" data-darkpath="<%=stylesheet_path "edu/scss/style-dark.css" %>" data-lightpath="<%=stylesheet_path "edu/scss/style.css" %>">
   <head>
     <title>Ubuntudream</title>
 
@@ -33,7 +33,8 @@
 
     <!-- Theme CSS -->
     <!--<link id="style-switch" rel="stylesheet" type="text/css" href="assets/css/style.css">-->
-    <%= stylesheet_link_tag "edu/scss/style", "data-turbo-track": "reload" %>
+    <%#= stylesheet_link_tag "edu/scss/style", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "edu/scss/style", "data-turbo-track": "reload", id: 'style-switch' %>
   </head>
 
   <body>

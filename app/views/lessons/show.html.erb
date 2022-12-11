@@ -67,7 +67,7 @@ Page banner video START -->
 			<!-- Playlist responsive toggler START -->
 			<div class="col-12">
 				<button class="btn btn-primary d-lg-none mb-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
-					<i class="bi bi-camera-video me-1"></i> Playlist
+					<i class="bi bi-camera-video me-1"></i> Prima di iniziare
 				</button>
 			</div>
 			<!-- Playlist responsive toggler END -->
@@ -216,12 +216,15 @@ Page content START -->
 					<nav class="navbar navbar-light navbar-expand-lg mx-0">
 						<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
 							<div class="offcanvas-header bg-dark">
-								<h5 class="offcanvas-title text-white" id="offcanvasSidebarLabel">Course playlist</h5>
+								<h5 class="offcanvas-title text-white" id="offcanvasSidebarLabel">Prima di iniziare</h5>
 								<button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="offcanvas" aria-label="Close"><i class="fa-solid fa-xmark fa-lg"></i></button>
 								<%# <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> %>
 							</div>
 							<div class="offcanvas-body p-3 p-lg-0">
 								<div class="col-12">
+
+									<h5>Lezioni propedeutiche</h5>
+
 									<!-- Accordion START -->
 									<div class="accordion accordion-flush-light accordion-flush" id="accordionExample">
 										<!-- Item -->
@@ -238,9 +241,11 @@ Page content START -->
 														<div>
 															<div class="d-flex justify-content-between align-items-center mb-2">
 																<div class="position-relative d-flex align-items-center">
-																	<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
+																	<!--<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">-->
+																	<%= link_to lesson_step_path(@lesson, @lesson.steps.first), class: "btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static", target: '_blank', 'data-turbo': false do %>
 																		<i class="fas fa-play me-0"></i>
-																	</a>
+																	<% end %>
+																	<!--</a>-->
 																	<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">La bottiglia d’acqua <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
 																</div>
 																<p class="mb-0 text-truncate">2m 10s</p>

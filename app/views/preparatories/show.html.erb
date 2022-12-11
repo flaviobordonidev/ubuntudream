@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @preparatory %>
+
+<div>
+  <%= link_to "Edit this preparatory", edit_preparatory_path(@preparatory) %> |
+  <%= link_to "Back to preparatories", preparatories_path %>
+
+  <%= button_to "Destroy this preparatory", @preparatory, method: :delete %>
+</div>

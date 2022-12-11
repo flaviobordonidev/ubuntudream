@@ -1,0 +1,2 @@
+class Preparatory < ApplicationRecord
+end

@@ -30,7 +30,7 @@ Page Banner START -->
 						<!-- Profile info -->
 						<div class="col d-md-flex justify-content-between align-items-center mt-4">
 							<div>
-								<h1 class="my-1 fs-4">FLAAAVIO<%#= @user.first_name + " " + @user.last_name %> <i class="bi bi-patch-check-fill text-info small"></i></h1>
+								<h1 class="my-1 fs-4"><%= @user.first_name if @user.first_name.present? %> <%= @user.last_name if @user.last_name.present? %> <i class="bi bi-patch-check-fill text-info small"></i></h1>
 								<ul class="list-inline mb-0">
 									<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
 									<li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled Students</li>
@@ -146,42 +146,3 @@ Page content END -->
 
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
-
-<!-- =======================
-Footer START -->
-<footer class="bg-dark p-3">
-	<div class="container">
-		<div class="row align-items-center">
-			<!-- Widget -->
-			<div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
-				<!-- Logo START -->
-				<!--<a href="index.html"> <img class="h-20px" src="assets/images/logo-light.svg" alt="logo"> </a>-->				
-				<%= link_to root_path do %>
-					<%= image_tag "logo/ubuntudream_logo_inverted.png", class: "h-20px", alt: "logo" %>
-				<% end %>
-			</div>
-			
-			<!-- Widget -->
-			<div class="col-md-4 mb-3 mb-md-0">
-				<div class="text-center text-white">
-					Copyrights ©2021 <a href="#" class="text-reset btn-link">Ubuntudream</a>. All rights reserved.
-				</div>
-			</div>
-			<!-- Widget -->
-			<div class="col-md-4">
-				<!-- Rating -->
-				<ul class="list-inline mb-0 text-center text-md-end">
-					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-facebook"></i></a></li>
-					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-instagram"></i></a></li>
-					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-linkedin-in"></i></a></li>
-					<li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-twitter"></i></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</footer>
-<!-- =======================
-Footer END -->
-
-<!-- Back to top -->
-<div class="back-top"><i class="bi bi-arrow-up-short position-absolute top-50 start-50 translate-middle"></i></div>

@@ -8,7 +8,7 @@
         <%#= image_tag "edu/logo.svg", class: "light-mode-item navbar-brand-item", alt: "logo" %>
         <%#= image_tag "edu/logo-light.svg", class: "dark-mode-item navbar-brand-item", alt: "logo" %>
         <%= image_tag "logo/ubuntudream_logo.png", class: "light-mode-item navbar-brand-item", alt: "logo" %>
-        <%= image_tag "logo/ubuntudream_logo.png", class: "dark-mode-item navbar-brand-item", alt: "logo" %>
+        <%= image_tag "logo/ubuntudream_logo_inverted.png", class: "dark-mode-item navbar-brand-item", alt: "logo" %>
 			<% end %>
 			<!-- Logo END -->
 
@@ -96,6 +96,13 @@
 					</li>
 					<!-- Links -->
 					<%# <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li> %>
+					<% if current_user.admin? %>
+						<li>
+							<%= link_to users_path, class: "dropdown-item" do %>
+								<i class="fa-solid fa-pen-to-square fa-users me-2"></i>Manage Users
+							<% end %>
+						</li>
+					<% end %>
 					<li>
 						<%= link_to edit_user_path(current_user, shown_fields: 'account'), class: "dropdown-item" do %>
 							<i class="fa-solid fa-pen-to-square fa-fw me-2"></i>Edit Profile
@@ -117,8 +124,8 @@
           </li>
 					<li> <hr class="dropdown-divider"></li>
 					<!-- Dark mode switch START -->
-					<li>
-						<div class="modeswitch-wrap" id="darkModeSwitch">
+					<li data-controller="darktheme">
+						<div class="modeswitch-wrap" id="darkModeSwitch" data-action="click->darktheme#modeswitch">
 							<div class="modeswitch-item">
 								<div class="modeswitch-icon"></div>
 							</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :preparatories
   resources :answers
 
   #lessons/:id/steps/:id
