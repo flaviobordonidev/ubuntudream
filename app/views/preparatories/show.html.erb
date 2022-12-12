@@ -1,11 +1,11 @@
+<!-- Questa pagina non è influenzata dal toggle light/dark-mode perché non è stato riportato nel layout full_screen. Lo lasciamo sempre scuro perché aiuta la concentrazione. -->
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
 
 <section class="py-0 bg-dark position-relative">
 
-	<div class="row g-0">
-		<div class="d-flex">
-			<div class="overflow-hidden fullscreen-video w-100">
+    <div class="row g-0">
+      <div class="d-flex">
         <div style="width: 100%; min-width: 100px; max-width: 1200px;" class="d-block mx-auto">
           <div style="position: relative; width:100%; overflow:hidden; padding-top: 56.25%;">
 
@@ -15,6 +15,7 @@
         </div>
 
         <script>
+
           // 2. This code loads the IFrame Player API code asynchronously.
           var tag = document.createElement('script');
 
@@ -32,13 +33,13 @@
               //videoId: 'M7lc1UVf-VE',
               videoId: '<%= @preparatory.youtube_video_id %>',
               playerVars: {
-								'autoplay': 1, // 1 = autoplay, 0 = no autoplay
-								'controls': 1, // 0 = controls do not display in the player, 1 = they display
-								'modestbranding': 1, // Hide the Youtube Logo
-								'fs': 0, // Hide the full screen button
-								'showinfo': 0, // Hide related videos at the end
-								'rel': 0, //related videos will come from my channel 
-                'playsinline': 0 //0 = fullscreen on mobile, 1 = non fullscreen
+                //'autoplay': 1, // 1 = autoplay, 0 = no autoplay
+                'controls': 0, // 0 = controls do not display in the player, 1 = they display
+                //'modestbranding': 1, // Hide the Youtube Logo
+                'fs': 0, // Hide the full screen button
+                //'showinfo': 0, // Hide related videos at the end
+                'rel': 0, //related videos will come from my channel 
+                'playsinline': 1 //0 = fullscreen on mobile, 1 = non fullscreen
               },
               events: {
                 'onReady': onPlayerReady,
@@ -69,29 +70,33 @@
           }
         </script>
 
-				<!-- Plyr resources and browser polyfills are specified in the pen settings -->
-			</div>
-		</div>
-	</div>
+        <!-- Plyr resources and browser polyfills are specified in the pen settings -->
+      </div>
+    </div>
+
+    <br/>
+    <hr/>
+    <br/>
+
+    <%= render @preparatory %>
+
+    <div>
+      <%= link_to "Edit this preparatory", edit_preparatory_path(@preparatory), class: "btn btn-primary" %> |
+      <%= link_to "Back to preparatories", preparatories_path, class: "text-white" %>
+
+      <%= button_to "Destroy this preparatory", @preparatory, method: :delete %>
+    </div>
+
+    <%= link_to "Indietro", :back, class: "btn btn-danger-soft mb-0" %>
+    <%= link_to "Indietro Turbo False", :back, data: {turbo: false}, class: "btn btn-danger-soft mb-0" %>
+
+
+    <%= link_to 'Indietro con javascript', 'javascript:history.back()', data: {turbo: false}, class: "btn btn-danger-soft mb-0" %>
+
+    <p style="color: green"><%= notice %></p>
+
 
 </section>
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
 
-
-<p style="color: green"><%= notice %></p>
-
-<%= render @preparatory %>
-
-<div>
-  <%= link_to "Edit this preparatory", edit_preparatory_path(@preparatory) %> |
-  <%= link_to "Back to preparatories", preparatories_path %>
-
-  <%= button_to "Destroy this preparatory", @preparatory, method: :delete %>
-</div>
-
-<%= link_to "Indietro", :back, class: "btn btn-danger-soft mb-0" %>
-<%= link_to "Indietro Turbo False", :back, data: {turbo: false}, class: "btn btn-danger-soft mb-0" %>
-
-
-<%= link_to 'Indietro con javascript', 'javascript:history.back()', data: {turbo: false}, class: "btn btn-danger-soft mb-0" %>

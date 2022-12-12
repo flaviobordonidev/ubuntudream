@@ -57,7 +57,9 @@ Page banner video START -->
 			<div class="col-12">
         <%#= image_tag "mockups/training_01.jpeg", class: "light-mode-item navbar-brand-item mx-auto d-block", alt: "painting" %>
 				<% if @lesson.picture_image.attached? %>
-	        <%= image_tag @lesson.picture_image, class: "light-mode-item navbar-brand-item mx-auto d-block", alt: "painting" %> 
+	        <%#= image_tag @lesson.picture_image, class: "light-mode-item navbar-brand-item mx-auto d-block", alt: "painting" %> 
+					<!-- se lascio la class: "light-mode-item" l'immagine scompare quando passo in dark-mode -->
+	        <%= image_tag @lesson.picture_image, class: "navbar-brand-item mx-auto d-block", alt: "painting" %> 
 				<% else %>
 					<p>Nessuna immagine presente</p>
 				<% end %>

@@ -84,13 +84,13 @@
               //videoId: 'M7lc1UVf-VE',
               videoId: '<%= @step.youtube_video_id %>',
               playerVars: {
-								'autoplay': 1, // 1 = autoplay, 0 = no autoplay
+								//'autoplay': 1, // 1 = autoplay, 0 = no autoplay
 								'controls': 0, // 0 = controls do not display in the player, 1 = they display
-								'modestbranding': 1, // Hide the Youtube Logo
+								//'modestbranding': 1, // Hide the Youtube Logo
 								'fs': 0, // Hide the full screen button
-								'showinfo': 0, // Hide related videos at the end
+								//'showinfo': 0, // Hide related videos at the end
 								'rel': 0, //related videos will come from my channel 
-                'playsinline': 0 //0 = fullscreen on mobile, 1 = non fullscreen
+                'playsinline': 1 //0 = fullscreen on mobile, 1 = non fullscreen
               },
               events: {
                 'onReady': onPlayerReady,
@@ -117,7 +117,7 @@
             }
             if (event.data == YT.PlayerState.ENDED) {
               console.log("ENDED - Evviva ^_^");
-							document.exitFullscreen(); // togliamo lo schermo intero (perché se è stato messo freeza tutto se nascondiamo il player)
+							//document.exitFullscreen(); // togliamo lo schermo intero (perché se è stato messo freeza tutto se nascondiamo il player)
               let playerDiv = document.getElementById('player') // prendiamo il tag con id="player"
               playerDiv.style.display = "none" //Nascondiamo il player
               let formTest = document.getElementById('answer-form') // prendiamo il tag con id="answer-form"
