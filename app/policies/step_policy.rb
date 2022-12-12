@@ -41,11 +41,11 @@ class StepPolicy < ApplicationPolicy
     if @user.present?
       case @user.role
       when 'user'
-        false #no records
+        true #all records
       when 'author'
-        false #no records
+        true #all records
       when 'moderator'
-        false #no records
+        true #all records
       when 'admin'
         true #all records
       else #role not defined
@@ -60,11 +60,11 @@ class StepPolicy < ApplicationPolicy
     if @user.present?
       case @user.role
       when 'user'
-        false #no records
+        true #all records
       when 'author'
-        false #no records
+        true #all records
       when 'moderator'
-        false #no records
+        true #all records
       when 'admin'
         true #all records
       else #role not defined
@@ -79,11 +79,11 @@ class StepPolicy < ApplicationPolicy
     if @user.present?
       case @user.role
       when 'user'
-        false #no records
+        true #all records
       when 'author'
-        false #no records
+        true #all records
       when 'moderator'
-        false #no records
+        true #all records
       when 'admin'
         true #all records
       else #role not defined

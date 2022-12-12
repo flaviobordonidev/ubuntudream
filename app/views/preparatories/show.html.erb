@@ -32,7 +32,13 @@
               //videoId: 'M7lc1UVf-VE',
               videoId: '<%= @preparatory.youtube_video_id %>',
               playerVars: {
-                'playsinline': 1
+								'autoplay': 1, // 1 = autoplay, 0 = no autoplay
+								'controls': 1, // 0 = controls do not display in the player, 1 = they display
+								'modestbranding': 1, // Hide the Youtube Logo
+								'fs': 0, // Hide the full screen button
+								'showinfo': 0, // Hide related videos at the end
+								'rel': 0, //related videos will come from my channel 
+                'playsinline': 0 //0 = fullscreen on mobile, 1 = non fullscreen
               },
               events: {
                 'onReady': onPlayerReady,
