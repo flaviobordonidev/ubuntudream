@@ -84,7 +84,10 @@
               //videoId: 'M7lc1UVf-VE',
               videoId: '<%= @step.youtube_video_id %>',
               playerVars: {
-                'playsinline': 1
+								'autoplay': 1, // 1 = autoplay, 0 = no autoplay
+								'controls': 1, // 0 = controls do not display in the player, 1 = they display
+								'modestbranding': 1, // Hide the Youtube Logo
+                'playsinline': 0 //0 = fullscreen on mobile, 1 = non fullscreen
               },
               events: {
                 'onReady': onPlayerReady,
@@ -105,9 +108,13 @@
             }
             if (event.data == YT.PlayerState.PAUSED) {          
               console.log("PAUSED");
+							// mettiamo il video in fullscreen
+							//let playerDiv = document.getElementById('player') // prendiamo il tag con id="player"
+							//playerDiv.requestFullscreen()
             }
             if (event.data == YT.PlayerState.ENDED) {
               console.log("ENDED - Evviva ^_^");
+							document.exitFullscreen(); // togliamo lo schermo intero (perché se è stato messo freeza tutto se nascondiamo il player)
               let playerDiv = document.getElementById('player') // prendiamo il tag con id="player"
               playerDiv.style.display = "none" //Nascondiamo il player
               let formTest = document.getElementById('answer-form') // prendiamo il tag con id="answer-form"
