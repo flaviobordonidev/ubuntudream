@@ -1,21 +1,26 @@
 <!-- Questo è il singolo step di una lezione. è il video con la domanda alla fine. -->
+<!-- Questa pagina non è influenzata dal toggle light/dark-mode perché non è stato riportato nel layout full_screen. Lo lasciamo sempre scuro perché aiuta la concentrazione. -->
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
-
 <section class="py-0 bg-dark position-relative">
 
 	<div class="row g-0">
 		<div class="d-flex">
-			<div class="overflow-hidden fullscreen-video w-100">
+			<!--<div class="overflow-hidden fullscreen-video w-100">-->
         <div style="width: 100%; min-width: 100px; max-width: 1200px;" class="d-block mx-auto">
-          <div style="position: relative; width:100%; overflow:hidden; padding-top: 56.25%;">
-						<div id="<%= dom_id @step %>" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100%; border:none;">
 
-						<%= form_with(model: [@lesson, @step], local: true, id: "answer-form", html: {'data-turbo': "false", style: "display: none;"}) do |form| %>
+          <div id="player-papa" style="position: relative; width:100%; overflow:hidden; padding-top: 56.25%;">
+            <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+            <div id="player" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100%; border:none;"></div>
+          </div>
+
+					<!-- 1b. The <div> with <form> that replaces the video player <iframe> tag. -->
+					<div id="<%= dom_id @step %>">
+						<%= form_with(model: [@lesson, @step], local: true, id: "answer-form", html: {'data-turbo': "false", style: "display: none; "}) do |form| %>
 							<!-- =======================
 							Newsletter START -->
 							<section class="pt-5 pt-lg-0">
-								<div class="container position-relative overflow-hidden">
+								<div class="container position-relative overflow-hidden pt-5">
 									<!-- SVG decoration -->
 									<figure class="position-absolute top-50 start-50 translate-middle ms-3">
 										<svg>
@@ -59,11 +64,53 @@
 							<!-- =======================
 							Newsletter END -->
 						<% end %> <!-- answer-form END -->
-	          </div>
+					</div>
 
-            <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-            <div id="player" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100%; border:none;"></div>
-          </div>
+					<!-- 1c. If it's the final step than show this. -->
+					<div id="last-step" style="display: none;">
+
+							<!-- =======================
+							Newsletter START -->
+							<section class="pt-5 pt-lg-0">
+								<div class="container position-relative overflow-hidden pt-5">
+									<!-- SVG decoration -->
+									<figure class="position-absolute top-50 start-50 translate-middle ms-3">
+										<svg>
+											<path class="fill-white opacity-3" d="m496 22.999c0 10.493-8.506 18.999-18.999 18.999s-19-8.506-19-18.999 8.507-18.999 19-18.999 18.999 8.506 18.999 18.999z"/>
+											<path class="fill-white opacity-3" d="m775 102.5c0 5.799-4.701 10.5-10.5 10.5-5.798 0-10.499-4.701-10.499-10.5 0-5.798 4.701-10.499 10.499-10.499 5.799 0 10.5 4.701 10.5 10.499z"/>
+											<path class="fill-white opacity-3" d="m192 102c0 6.626-5.373 11.999-12 11.999s-11.999-5.373-11.999-11.999c0-6.628 5.372-12 11.999-12s12 5.372 12 12z"/>
+											<path class="fill-white opacity-3" d="m20.499 10.25c0 5.66-4.589 10.249-10.25 10.249-5.66 0-10.249-4.589-10.249-10.249-0-5.661 4.589-10.25 10.249-10.25 5.661-0 10.25 4.589 10.25 10.25z"/>
+										</svg>
+									</figure>
+									
+									<div class="bg-grad p-3 p-sm-5 rounded-3">
+										<div class="row justify-content-center position-relative">
+											<!-- SVG decoration -->
+											<figure class="fill-white opacity-1 position-absolute top-50 start-0 translate-middle-y">
+												<svg width="141px" height="141px">
+													<path d="M140.520,70.258 C140.520,109.064 109.062,140.519 70.258,140.519 C31.454,140.519 -0.004,109.064 -0.004,70.258 C-0.004,31.455 31.454,-0.003 70.258,-0.003 C109.062,-0.003 140.520,31.455 140.520,70.258 Z"/>
+												</svg>
+											</figure>
+											<!-- Newsletter -->
+											<div class="col-12 position-relative my-2 my-sm-3">
+												<div class="row align-items-center">
+													<!-- Title -->
+													<div class="col-lg-12">
+														<h3 class="text-white mb-3 mx-3">CONGRATULATION</h3>
+														<%= link_to 'Repeat Lesson', [@step.lesson], class: "btn btn-primary mb-0 mx-1" %>
+														<%= link_to 'Next Lesson', lessons_path, class: "btn btn-primary mb-0 mx-1" %>
+
+													</div>
+												</div>
+											</div>
+										</div> <!-- Row END -->
+									</div>
+								</div>
+							</section>
+							<!-- =======================
+							Newsletter END -->
+					</div>
+
         </div>
 
         <script>
@@ -118,318 +165,84 @@
             if (event.data == YT.PlayerState.ENDED) {
               console.log("ENDED - Evviva ^_^");
 							//document.exitFullscreen(); // togliamo lo schermo intero (perché se è stato messo freeza tutto se nascondiamo il player)
-              let playerDiv = document.getElementById('player') // prendiamo il tag con id="player"
-              playerDiv.style.display = "none" //Nascondiamo il player
-              let formTest = document.getElementById('answer-form') // prendiamo il tag con id="answer-form"
-              formTest.style.display = "block" //Mostriamo il form
+              let playerDiv = document.getElementById('player-papa'); // prendiamo il tag con id="player"
+              playerDiv.style.display = "none"; //Nascondiamo il player
+              //let playerDiv = document.getElementById('player') // prendiamo il tag con id="player"
+              //playerDiv.style.display = "none" //Nascondiamo il player
+							if (<%= @step.next.present? %>) { 
+								let formTest = document.getElementById('answer-form'); // prendiamo il tag con id="answer-form"
+								formTest.style.display = "block"; //Mostriamo il form
+							} else {
+								let lastStep = document.getElementById('last-step'); // prendiamo il tag con id="last-step"
+								lastStep.style.display = "block"; //Mostriamo il div
+							}
             }
           }
         </script>
 
 				<!-- Plyr resources and browser polyfills are specified in the pen settings -->
-			</div>
+			<!--</div>-->
 
-			<!-- Page content START -->
-			<div class="justify-content-end position-relative">
-				<!-- Collapse button START -->
-				<button class="navbar-toggler btn btn-white mt-4 plyr-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-					<span class="navbar-toggler-animation">
-						<span></span>
-						<span></span>
-						<span></span>
-					</span>	
-				</button>
-				<!-- Collapse button END -->
-
-				<!-- Collapse body START -->
-				<div class="collapse collapse-horizontal" id="collapseWidthExample">
-					<div class="card vh-100 overflow-auto rounded-0 w-280px w-sm-400px">
-						<!-- Title -->
-						<div class="card-header bg-light rounded-0">
-							<h1 class="mt-2 fs-5"><%= @step.lesson.name %></h1>
-							<h6 class="mb-0 fw-normal"><a href="#">Voice: Flavio Bordoni</a></h6>
-						</div>
-
-						<!-- Course content START -->
-						<div class="card-body">
-							<%#<div class="d-grid">%>
-								<%#= link_to 'Esci dalla Lezione', [@step.lesson], class: "btn btn-danger-soft mb-0" %>
-							<%#</div>%>
-							<%#<hr> <!-- Divider -->%>
-							<% if current_user.admin? %>
-								<h5>Lezioni propedeutiche</h5>
-								<!-- Course START -->
-									<div class="row">
-										<div class="col-12">
-											<!-- Accordion START -->
-											<div class="accordion accordion-flush-light accordion-flush" id="accordionExample">
-												<!-- Item -->
-												<div class="accordion-item">
-													<h2 class="accordion-header" id="headingOne">
-														<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-															<span class="mb-0 fw-bold">Preparazione dell’ambiente</span> 
-														</button>
-													</h2>
-													<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-														<div class="accordion-body px-3">
-															<div class="vstack gap-3">
-																<!-- Course lecture -->
-																<div>
-																	<div class="d-flex justify-content-between align-items-center mb-2">
-																		<div class="position-relative d-flex align-items-center">
-																			<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																				<i class="fas fa-play me-0"></i>
-																			</a>
-																			<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">La bottiglia d’acqua <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																		</div>
-																		<p class="mb-0 text-truncate">2m 10s</p>
-																	</div>
-																</div>	
-
-																<!-- Course lecture -->
-																<div>
-																	<div class="d-flex justify-content-between align-items-center mb-2">
-																		<div class="position-relative d-flex align-items-center">
-																			<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																				<i class="fas fa-play me-0"></i>
-																			</a>
-																			<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Mettiamoci comodi <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																		</div>
-																		<p class="mb-0 text-truncate">15m 10s</p>
-																	</div>
-																</div>
-
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Nessuna interruzione <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">18m 10s</p>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-
-												<!-- Item -->
-												<div class="accordion-item">
-													<h2 class="accordion-header" id="headingTwo">
-														<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-															<span class="mb-0 fw-bold">Preparazione della mente</span> 
-														</button>
-													</h2>
-													<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-														<div class="accordion-body px-3">
-															<div class="vstack gap-3">
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Leggerezza <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">2m 10s</p>
-																</div>
-
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Calma <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">15m 10s</p>
-																</div>
-
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Vivere nel presente <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">18m 10s</p>
-																</div>
-															</div>	<!-- Row END -->
-														</div>
-													</div>
-												</div>
-
-												<!-- Item -->
-												<div class="accordion-item">
-													<h2 class="accordion-header" id="headingThree">
-														<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-															<span class="mb-0 fw-bold">Spiegazione del riscaldamento</span> 
-														</button>
-													</h2>
-													<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-														<div class="accordion-body px-3">
-															<div class="vstack gap-3">
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Respirazione <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">2m 10s</p>
-																</div>
-
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Contrazioni muscolari <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">15m 00s</p>
-																</div>
-
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Posizione di Vittoria <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">28m 10s</p>
-																</div>
-
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Posizione di Comando <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">38m 22s</p>
-																</div>
-
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Posizione di Confidenza <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">12m 10s</p>
-																</div>
-
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Posizione di Forza <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">12m 10s</p>
-																</div>
-
-																<!-- Course lecture -->
-																<div class="d-flex justify-content-between align-items-center">
-																	<div class="position-relative d-flex align-items-center">
-																		<a href="#" class="btn btn-primary-soft btn-round btn-sm mb-0 stretched-link position-static">
-																			<i class="fas fa-play me-0"></i>
-																		</a>
-																		<span class="d-inline-block text-truncate ms-2 mb-0 h6 fw-light w-100px w-sm-200px">Posizione Zen <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-																	</div>
-																	<p class="mb-0 text-truncate">35m 10s</p>
-																</div>
-															</div>
-														</div>	
-													</div>
-												</div>
-
-												<% if current_user.admin? %>
-												<!-- Item Administrator -->
-												<div class="accordion-item">
-													<h2 class="accordion-header" id="headingFour">
-														<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-															<span class="mb-0 fw-bold">Gestione Steps</span> 
-														</button>
-													</h2>
-													<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-														<div class="accordion-body px-3">
-															<div class="vstack gap-3">
-
-																<div>
-																	<%= @step.prev.id if @step.prev.present? %>
-																	<%= link_to '<Prev', lesson_step_path(@lesson, @step.prev.id), 'data-turbo': false if @step.prev.present? %>
-																	<%= @step.id %>
-																	<%= link_to 'Next>', lesson_step_path(@lesson, @step.next.id), 'data-turbo': false if @step.next.present? %>
-																	<%= @step.next.id if @step.next.present? %>
-																	<br/>
-
-																	<%= link_to 'Edit this step', edit_lesson_step_path(@lesson, @step) %> |
-																	<%= link_to 'Back to lesson steps', lesson_steps_path(@lesson) %>
-
-																	<%= button_to "Destroy this step", [@lesson, @step], method: :delete %>
-																</div>
-
-															</div>
-														</div>	
-													</div>
-												</div>
-												<% end %>
-
-											</div>
-											<!-- Accordion END -->
-										</div>
-									</div>
-								<!-- Course END -->
-							<% end %>
-						</div>
-						<!-- Course content END -->
-
-						<div class="card-footer">
-							<div class="d-grid">
-								<%= link_to 'Esci dalla Lezione', [@step.lesson], class: "btn btn-danger-soft mb-0" %>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Collapse body END -->
-			</div>
-			<!-- Page content END -->
 		</div>
 	</div>
 
+	<div class="row g-0">
+		<div class="col-lg-12 d-grid">
+			<%= link_to 'Esci dalla Lezione', [@step.lesson], class: "btn btn-danger-soft mb-0 mx-1" %>
+		</div>
+
+		<% if current_user.admin? %>
+			<h6>Sezione Admin</h6>
+
+        <!-- Pagination START -->
+        <div class="col-12">
+          <nav class="mt-4 d-flex justify-content-center" aria-label="navigation">
+
+						<nav aria-label="pager"  class="pagy-bootstrap-nav" role="navigation">
+							<ul class="pagination">
+								<% if @step.prev.present? %>    
+									<li class="page-item prev">
+										<%= link_to "<Prev #{@step.prev.id}", lesson_step_path(@lesson, @step.prev.id), class: "page-link", 'data-turbo': false %>
+									</li>
+								<% else %>    
+									<li class="page-item prev disabled">
+										<a href="#" class="page-link"><%= '<prev' %></a>
+									</li>
+								<% end %>
+
+								<li class="page-item disabled"><%= link_to @step.id, "#", class: "page-link" %></li>
+
+								<% if @step.next.present? %>    
+									<li class="page-item next">
+										<%= link_to "#{@step.next.id} Next>", lesson_step_path(@lesson, @step.next.id), class:"page-link", 'data-turbo': false %>
+									</li>
+								<% else %>
+									<li class="page-item next disabled">
+										<a href="#" class="page-link"><%= 'next>' %></a>
+									</li>
+								<% end %>
+						  </ul>
+						</nav>
+
+          </nav>
+        </div>
+        <!-- Pagination END -->
+
+			<%#= @step.prev.id if @step.prev.present? %>
+			<%#= link_to '<Prev', lesson_step_path(@lesson, @step.prev.id), 'data-turbo': false if @step.prev.present? %>
+			<%#= @step.id %>
+			<%#= link_to 'Next>', lesson_step_path(@lesson, @step.next.id), 'data-turbo': false if @step.next.present? %>
+			<%#= @step.next.id if @step.next.present? %>
+			<br/>
+			<div class="d-flex align-items-center mt-2 mt-md-0">
+				<%= link_to 'Edit this step', edit_lesson_step_path(@lesson, @step), class: "btn btn-warning mb-0 mx-1" %>
+				<%= link_to 'Back to lesson steps', lesson_steps_path(@lesson), class: "btn btn-success mb-0 mx-1" %>
+				<%= button_to "Destroy this step", [@lesson, @step], method: :delete, class: "btn btn-danger mb-0 mx-1" %>
+			</div>
+
+		<% end %>
+
+	</div>
 </section>
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
-
-<!-- Modal body START -->
-<div class="modal fade" id="Notemodal" tabindex="-1" aria-labelledby="NotemodalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="NotemodalLabel">Add New Note</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				<!-- Note input -->
-				<div class="col-12">
-					<label class="form-label">Type your note <span class="text-danger">*</span></label>
-					<input type="text" class="form-control" placeholder="Type your note">
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save Note</button>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Modal body END -->
