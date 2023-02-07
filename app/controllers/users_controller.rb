@@ -5,7 +5,12 @@ class UsersController < ApplicationController
 
   # GET /users or /users.json
   def index
-    @pagy, @users = pagy(User.all, items: 6)
+    @q = User.ransack(params[:q])
+    #@users = @q.result(distinct: true)
+    @pagy, @users = pagy(@q.result(distinct: true), items: 2)
+
+    #params[:search] = "" if params[:search].blank?
+    #@pagy, @users = pagy(User.search(params[:search]), items: 6)
     authorize @users
   end
 
@@ -83,6 +88,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:avatar_image, :username, :first_name, :last_name, :location, :bio, :phone_number, :email, :password, :password_confirmation, :shown_fields, :role)
+      params.require(:user).permit(:avatar_image, :username, :first_name, :last_name, :location, :bio, :phone_number, :email, :password, :password_confirmation, :shown_fields, :role, :language)
     end
 end

@@ -15,11 +15,22 @@ class ApplicationController < ActionController::Base
 
     #set language for internationalization
     def set_locale
-      # Se non ho assegnato il parametro :locale allora gli passo la lingua impostata sul browser
-      # (per testare usa Google chrome Extension: Locale Switcher)
-      params[:locale] = request.env.fetch('HTTP_ACCEPT_LANGUAGE', '').scan(/[a-z]{2}/).first if params[:locale].blank?
+      if params[:locale].blank?
+        if current_user.present?
+          if current_user.language.present?
+            params[:locale] = current_user.language
+          else
+            # Se non ho assegnato il parametro :locale e non ho una lingua per l'utente loggato, allora gli passo la lingua impostata sul browser
+            # (per testare usa Google chrome Extension: Locale Switcher)
+            params[:locale] = request.env.fetch('HTTP_ACCEPT_LANGUAGE', '').scan(/[a-z]{2}/).first
+          end
+        else
+          params[:locale] = request.env.fetch('HTTP_ACCEPT_LANGUAGE', '').scan(/[a-z]{2}/).first
+        end
+      end
+
       case params[:locale]
-      when "it", "en"
+      when "it", "en", "pt"
         I18n.locale = params[:locale]
       else
         I18n.locale = I18n.default_locale

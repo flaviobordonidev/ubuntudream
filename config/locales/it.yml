@@ -33,6 +33,9 @@
 # https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/it.yml
 
 it:
+  pagy:
+    nav:
+      prev: "< ndietro"
 
   #----------------------------------------------------------------------------
   # Globali (in ordine alfabetico)
@@ -214,11 +217,21 @@ it:
       decimal_units:
         format: "%n %u"
         units:
-          billion: Miliardi
-          million: Milioni
-          quadrillion: Biliardi
-          thousand: Mila
-          trillion: Bilioni
+          billion:
+            one: Miliardo
+            other: Miliardi
+          million:
+            one: Milione
+            other: Milioni
+          quadrillion:
+            one: Quadrilione
+            other: Quadrilioni
+          thousand:
+            one: Mila
+            other: Mila
+          trillion:
+            one: trilione
+            other: trilioni
           unit: ''
       format:
         delimiter: ''
@@ -286,8 +299,12 @@ it:
   activerecord:
     attributes:
       user:
-        name: "Nome utente" # fallback for when label is nil
+        username: "Soprannome utente" # fallback for when label is nil
+        first_name: "Nome utente"
+        last_name: "Cognome utente"
         email: "Email" # fallback for when label is nil
+        language: "lingua"
+        role: "ruolo"
         password: "Password" # fallback for when label is nil
         password_confirmation: "Conferma password" # fallback for when label is nil
       user/role:
@@ -295,6 +312,10 @@ it:
         author: "autore"
         moderator: "moderatore"
         user: "utente"
+      user/language:
+        it: "Italiano"
+        en: "Inglese"
+        pt: "Portoghese"
     errors:
       messages:
         record_invalid: 'Validazione fallita: %{errors}'
@@ -331,6 +352,12 @@ it:
       html_head_title: "Modifica Art. %{id}"
     new:
       html_head_title: "Nuovo articolo"
+  lessons:
+    index:
+      banner_title: "Lista delle lezioni"
+      breadcrumb_home: "Home"
+      breadcrumb_lessons: "lezioni"
+      form_search_placeholder: "Cerca..."
   mockups:
     page_a:
       navbar_title: "Barra di navigazione"
@@ -355,6 +382,18 @@ it:
       toast_title: "Questo è il titolo del toast"
       toast_time_ago: "11 minuti fa"
       toast_message: "Ciao mondo! Questo è un messaggio del toast."
+  navbar:
+    lessons: "Lezioni"
+    all_levels: "Tutti i livelli"
+    beginner: "Principiante"
+    intermediate: "Intermedio"
+    advanced: "Avanzato"
+    labelnew: "nuovo"
+    manage_users: "Gestisci Utenti"
+    edit_profile: "Modifica Profilo"
+    update_password: "Aggiorna Password"
+    logout: "Esci"
+    dark_mode: "Modalità Scura"
   users:
     index:
       html_head_title: "Tutti gli utenti"

@@ -3,10 +3,15 @@ class Lesson < ApplicationRecord
   
   # == Extensions ===========================================================
 
+  ## i18n dynamic
+  extend Mobility
+  translates :name, type: :string
+  translates :description_rtf, backend: :action_text
+  
   # == Attributes ===========================================================
 
   ## ActiveText
-  has_rich_text :description_rtf
+  #has_rich_text :description_rtf
 
   ## ActiveStorage
   has_one_attached :picture_image
@@ -20,6 +25,8 @@ class Lesson < ApplicationRecord
   # == Validations ==========================================================
 
   # == Scopes ===============================================================
+
+  scope :search, -> (query) {where("name ILIKE ?", "%#{query.strip}%")}
 
   # == Callbacks ============================================================
 

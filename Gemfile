@@ -51,6 +51,9 @@ gem "sassc-rails"
 # Flexible authentication solution for Rails with Warden 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
+# Add searching to your Rails application
+gem 'ransack', '~> 3.2', '>= 3.2.1'
+
 # Object oriented authorization for Rails applications
 gem 'pundit', '~> 2.2'
 
@@ -62,6 +65,13 @@ gem 'aws-sdk-s3', '~> 1.114', require: false
 
 # Agnostic pagination in plain ruby
 gem 'pagy', '~> 5.10', '>= 5.10.1'
+
+# Stores and retrieves localized data through attributes on a Ruby class.
+# Contenuto DINAMICO (sul database)
+gem 'mobility', '~> 1.2', '>= 1.2.9'
+
+# Translate Rails Action Text rich text with Mobility.
+gem 'mobility-actiontext', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

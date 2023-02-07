@@ -1,0 +1,420 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html. --> https://github.com/svenfuchs/rails-i18n/tree/master/rails/locale
+
+# Customized by Flavio
+# https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/pt-BR.yml
+
+pt:
+
+  #----------------------------------------------------------------------------
+  # Globais (em ordem alfabética)
+
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      confirmation: não é igual a %{attribute}
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      model_invalid: 'A validação falhou: %{errors}'
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      other_than: deve ser diferente de %{count}
+      present: deve ficar em branco
+      required: é obrigatório(a)
+      taken: já está em uso
+      too_long:
+        one: 'é muito longo (máximo: %{count} caracter)'
+        other: 'é muito longo (máximo: %{count} caracteres)'
+      too_short:
+        one: 'é muito curto (mínimo: %{count} caracter)'
+        other: 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length:
+        one: não possui o tamanho esperado (%{count} caracter)
+        other: não possui o tamanho esperado (%{count} caracteres)
+    template:
+      body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: 'Não foi possível gravar %{model}: %{count} erro'
+        other: 'Não foi possível gravar %{model}: %{count} erros'
+
+  form_errors_message:
+    one: "1 erro impediu o salvamento"
+    other: "%{count} erros impediram o salvamento"
+
+  date:
+    abbr_day_names:
+    - dom
+    - seg
+    - ter
+    - qua
+    - qui
+    - sex
+    - sáb
+    abbr_month_names:
+    - 
+    - jan
+    - fev
+    - mar
+    - abr
+    - mai
+    - jun
+    - jul
+    - ago
+    - set
+    - out
+    - nov
+    - dez
+    day_names:
+    - domingo
+    - segunda-feira
+    - terça-feira
+    - quarta-feira
+    - quinta-feira
+    - sexta-feira
+    - sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %B"
+    month_names:
+    - 
+    - janeiro
+    - fevereiro
+    - março
+    - abril
+    - maio
+    - junho
+    - julho
+    - agosto
+    - setembro
+    - outubro
+    - novembro
+    - dezembro
+    order:
+    - :day
+    - :month
+    - :year
+
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente %{count} hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente %{count} mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente %{count} ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase %{count} ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_seconds:
+        one: menos de %{count} segundo
+        other: menos de %{count} segundos
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      over_x_years:
+        one: mais de %{count} ano
+        other: mais de %{count} anos
+      x_seconds:
+        one: "%{count} segundo"
+        other: "%{count} segundos"
+      x_minutes:
+        one: "%{count} minuto"
+        other: "%{count} minutos"
+      x_days:
+        one: "%{count} dia"
+        other: "%{count} dias"
+      x_months:
+        one: "%{count} mês"
+        other: "%{count} meses"
+      x_years:
+        one: "%{count} ano"
+        other: "%{count} anos"
+    prompts:
+      second: Segundo
+      minute: Minuto
+      hour: Hora
+      day: Dia
+      month: Mês
+      year: Ano
+
+  time:
+    am: ''
+    formats:
+      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      long: "%d de %B de %Y, %H:%M"
+      short: "%d de %B, %H:%M"
+      long_phrase: "%A %d %^B %Y alle %H:%M e %S segundos"
+      short_phrase: "o dia %d %^B %Y"
+      my_custom_long: "Esta é a minha data personalizada %A %d %^B %Y às %H:%M e %S segundos"
+    pm: ''
+
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u %n"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+        #unit: "" #Customized
+        price_for_reports: "Isso nos custa %{price} de moedinhas"
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand:
+            one: mil
+            other: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          eb: EB
+          gb: GB
+          kb: KB
+          mb: MB
+          pb: PB
+          tb: TB
+    percentage:
+      format:
+        delimiter: "."
+        format: "%n%"
+    precision:
+      format:
+        delimiter: "."
+
+  support:
+    array:
+      last_word_connector: " e "
+      two_words_connector: " e "
+      words_connector: ", "
+
+  #----------------------------------------------------------------------------
+  # helpers e activerecord (em ordem alfabética)
+
+  helpers:
+    label:
+      user:
+        username: "Apelido do usuário"
+        first_name: "Nome do usuário"
+        last_name: "Sobrenome do usuário"
+        email: "Email"
+        role: "Função"
+        location: "Localização"
+        password: "Senha"
+        password_confirmation: "Confirme sua senha"
+    placeholder:
+      user:
+        username: "Apelido do usuário"
+        first_name: "Nome do usuário"
+        last_name: "Sobrenome do usuário"
+        email: "Email"
+        password: "Senha"
+        password_confirmation: "Confirme sua senha"
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+      user:
+        create: "Criar %{model}"
+        update: "Atualizar %{model}"
+
+  activerecord:
+    attributes:
+      user:
+        username: "Apelido do usuário" # fallback for when label is nil
+        email: "Email" # fallback for when label is nil
+        first_name: "Nome do usuário"
+        last_name: "Sobrenome do usuário"
+        language: "Língua"
+        role: "Função"
+        password: "Senha" # fallback for when label is nil
+        password_confirmation: "Confirme sua senha" # fallback for when label is nil
+      user/role:
+        admin: "administrador"
+        author: "autor"
+        moderator: "moderador"
+        user: "usuário"
+      user/language:
+        it: "Italiano"
+        en: "Inglês"
+        pt: "Português"
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes
+      #models:
+        # user:
+        #   attributes:
+        #     name:
+        #       blank: ": campo obbligatorio"
+        #     email:
+        #       blank: ": campo obbligatorio"
+        #       invalid: ": non valida"
+        #     password:
+        #       blank: ": campo obbligatorio"
+        #       too_short: ": troppo corta"
+        #     password_confirmation:
+        #       confirmation: ": non corrisponde con password"
+    models:
+      user: "usuário"
+
+  #----------------------------------------------------------------------------
+  # Controllers/views (em ordem alfabética)
+
+  eg_posts:
+    not_published: "ainda não foi publicado"
+    index:
+      html_head_title: "Todos os artigos"
+    show:
+      html_head_title: "Art. %{id}"
+      price_fomatted: "Isso custa %{price} centavos"
+    edit:
+      html_head_title: "Modificação do art. %{id}"
+    new:
+      html_head_title: "Novo artigo"
+  lessons:
+    index:
+      banner_title: "Lista de aulas"
+      breadcrumb_home: "Início"
+      breadcrumb_lessons: "aulas"
+      form_search_placeholder: "Busca..."
+  mockups:
+    page_a:
+      navbar_title: "Barra de navegação"
+      navbar_home: "Lar (home) ^_^"
+      navbar_link: "Conexão"
+      navbar_dropdown: "Menu suspenso"
+      navbar_action: "Ação"
+      navbar_another_action: "outra ação"
+      navbar_something_else_here: "outra coisa aqui"
+      navbar_disabled: "Link desativado"
+      navbar_search: "Procure aqui"
+      headline: "Esta é a página principal"
+      first_paragraph: "O texto mostrado aqui é passado por um 'arquivo de tradução' e isso significa que nosso aplicativo está pronto para suportar mais idiomas."
+      current_user: "usuário ativo"
+      no_logged_user: "Nenhum usuário está logado!"
+      logout: "Sair"
+      login: "Conecte-se"
+      popover_title: "Título do popover"
+      amazing_content: "E aqui está um conteúdo surpreendente. É muito envolvente. Verdadeiro?"
+      click_to_toggle_popover: "Clique para ativar o popover"
+      show_toast: "Mostrar o toast no canto inferior direito"
+      toast_title: "Este é o título do toast"
+      toast_time_ago: "11 minutos atrás"
+      toast_message: "Olá Mundo! Esta é uma mensagem do toast."
+  navbar:
+    lessons: "Aulas"
+    all_levels: "Todos os níveis"
+    beginner: "Novato"
+    intermediate: "Intermédio"
+    advanced: "Avançado"
+    labelnew: "novo"
+    manage_users: "Gerenciar usuários"
+    edit_profile: "Editar Perfil"
+    update_password: "Atualizar senha"
+    logout: "Sair"
+    dark_mode: "Modo Escuro"
+  users:
+    index:
+      html_head_title: "todos os usuários"
+    new:
+      html_head_title: "Novo usuário"
+    edit:
+      html_head_title: "Editar"
+    create:
+      notice: "O usuário foi criado com sucesso."
+    update:
+      notice: "O usuário foi atualizado com sucesso."
+    destroy:
+      notice: "O usuário foi deletado com sucesso."
+      notice_logged_in: "O usuário logado não pode ser deletado."
+    sessions:
+      new:
+        welcome_title: "Bem-vindo ao UbuntuDream"
+        welcome_subtitle: "Vamos trabalhar um pouco com a nossa imaginação ^_^"
+        social_proof: "Muitos alunos já se juntaram a nós, agora é a sua vez."
+        login_title: "Entrar no UbuntuDream!"
+        login_subtitle: "É bom te ver! entre com sua conta."
+
+  #----------------------------------------------------------------------------
+  # Gems (in ordine alfabetico)
+
+  pundit:
+    you_are_not_authorized: "Você não está autorizado a executar esta ação."

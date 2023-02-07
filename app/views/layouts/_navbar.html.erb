@@ -29,16 +29,16 @@
 
 					<!-- Nav item 1 Lessons -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="gratitudeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lessons</a>
+						<a class="nav-link dropdown-toggle" href="#" id="gratitudeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t "navbar.lessons" %></a>
 						<ul class="dropdown-menu" aria-labelledby="gratitudeMenu">
-							<li> <%= link_to "All levels", lessons_path, class: "dropdown-item" %> </li>
-							<li> <%= link_to "Beginner", lessons_path, class: "dropdown-item" %> </li>
-							<li> <%= link_to "Intermediate", lessons_path, class: "dropdown-item" %> </li>
+							<li> <%= link_to  t("navbar.all_levels"), lessons_path, class: "dropdown-item" %> </li>
+							<li> <%= link_to t("navbar.beginner"), lessons_path, class: "dropdown-item" %> </li>
+							<li> <%= link_to t("navbar.intermediate"), lessons_path, class: "dropdown-item" %> </li>
 							<li>  </li>
 							<li> <hr class="dropdown-divider"></li>
 							<li> 
 								<%= link_to lessons_path, class: "dropdown-item" do %>
-									Advanced <span class="badge bg-success ms-2 smaller">New</span>
+									 <%= t("navbar.advanced") %> <span class="badge bg-success ms-2 smaller"><%= t("navbar.labelnew") %></span>
 								<% end %>
 							</li>
 						</ul>
@@ -94,23 +94,42 @@
 						</div>
 						<hr>
 					</li>
+
+					<!-- Nav item Language -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="languageMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-language me-2"></i>Language</a>
+						<ul class="dropdown-menu" aria-labelledby="languageMenu">
+							<li><%= link_to "Italiano", params.permit(:locale).merge(locale: 'it'), class: "dropdown-item #{params[:locale] == "it" ? "active" : ""}" %></li>
+							<li><%= link_to "Inglese", params.permit(:locale).merge(locale: 'en'), class: "dropdown-item #{params[:locale] == "en" ? "active" : ""}" %></li>
+							<li><%= link_to "Portoghese", params.permit(:locale).merge(locale: 'pt'), class: "dropdown-item #{params[:locale] == "pt" ? "active" : ""}" %></li>
+						</ul>
+					</li>
+					<!--
+					<%#= link_to params.permit(:locale).merge(locale: 'it'), class: "btn btn-medium btn-rounded" do %>
+						<%#= image_tag "edu/flags/it.svg", alt: "italiano" %> Italiano &nbsp&nbsp&nbsp&nbsp
+					<%# end %>
+					<%#= link_to params.permit(:locale).merge(locale: 'en'), class: "btn btn-medium btn-rounded" do %>
+						<%#= image_tag "edu/flags/us.svg", alt: "english" %> Inglese &nbsp&nbsp&nbsp&nbsp
+					<%# end %>
+					-->
+
 					<!-- Links -->
 					<%# <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li> %>
 					<% if current_user.admin? %>
 						<li>
 							<%= link_to users_path, class: "dropdown-item" do %>
-								<i class="fa-solid fa-pen-to-square fa-users me-2"></i>Manage Users
+								<i class="fa-solid fa-users me-2"></i><%= t("navbar.manage_users") %>
 							<% end %>
 						</li>
 					<% end %>
 					<li>
 						<%= link_to edit_user_path(current_user, shown_fields: 'account'), class: "dropdown-item" do %>
-							<i class="fa-solid fa-pen-to-square fa-fw me-2"></i>Edit Profile
+							<i class="fa-solid fa-pen-to-square fa-fw me-2"></i><%= t("navbar.edit_profile") %>
 						<% end %>
 					</li>
 					<li>
 						<%= link_to edit_user_path(current_user, shown_fields: 'password'), class: "dropdown-item" do %>
-							<i class="fa-solid fa-key fa-fw me-2"></i>Update password
+							<i class="fa-solid fa-key fa-fw me-2"></i><%= t("navbar.update_password") %>
 						<% end %>
 					</li>
 					<%# <li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li> %>
@@ -119,7 +138,7 @@
 					<%# <li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li> %>
           <li>
             <%= button_to destroy_user_session_path, method: :delete, class: 'dropdown-item bg-danger-soft-hover' do %>
-              <i class="bi bi-power fa-fw me-2"></i>Logout
+              <i class="bi bi-power fa-fw me-2"></i><%= t("navbar.logout") %>
             <% end %>
           </li>
 					<li> <hr class="dropdown-divider"></li>
@@ -129,7 +148,7 @@
 							<div class="modeswitch-item">
 								<div class="modeswitch-icon"></div>
 							</div>
-							<span>Dark mode</span>
+							<span><%= t("navbar.dark_mode") %></span>
 						</div>
 					</li> 
           <!-- Dark mode switch END -->

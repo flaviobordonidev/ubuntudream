@@ -14,6 +14,8 @@ class User < ApplicationRecord
   ## enum
   #enum role: [:user, :admin, :moderator, :author]
   enum role: {user: 0, admin: 1, moderator:2, author:3}
+  #enum language: [:it, :en, :pt]
+  enum language: {it: 0, en: 1, pt: 2}
 
   ## ActiveStorage
   has_one_attached :avatar_image
@@ -30,6 +32,8 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   # == Scopes ===============================================================
+
+  #scope :search, -> (query) {where("first_name ILIKE ? OR last_name ILIKE ? OR username ILIKE ?", "%#{query.strip}%", "%#{query.strip}%", "%#{query.strip}%")}
 
   # == Callbacks ============================================================
 

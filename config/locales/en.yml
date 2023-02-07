@@ -33,6 +33,9 @@
 # https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en-US.yml
 
 en:
+  pagy:
+    nav:
+      prev: "< backrear"
 
   #----------------------------------------------------------------------------
   # Globals (in alphabetical order)
@@ -214,11 +217,21 @@ en:
       decimal_units:
         format: "%n %u"
         units:
-          billion: Billion
-          million: Million
-          quadrillion: Quadrillion
-          thousand: Thousand
-          trillion: Trillion
+          billion:
+            one: Billion
+            other: Billions
+          million: 
+            one: Million
+            other: Millions
+          quadrillion:
+            one: Quadrillion
+            other: Quadrillions
+          thousand:
+            one: Thousand
+            other: Thousand
+          trillion: 
+            one: Trillion
+            other: Trillions
           unit: ''
       format:
         delimiter: ''
@@ -286,8 +299,12 @@ en:
   activerecord:
     attributes:
       user:
-        name: "User name" # fallback for when label is nil
+        username: "User Nickname" # fallback for when label is nil
+        first_name: "User first name"
+        last_name: "User last name"
         email: "Email" # fallback for when label is nil
+        language: "language"
+        role: "role"
         password: "Password" # fallback for when label is nil
         password_confirmation: "Password confirmation" # fallback for when label is nil
       user/role:
@@ -295,6 +312,10 @@ en:
         author: "author"
         moderator: "moderator"
         user: "user"
+      user/language:
+        it: "Italian"
+        en: "English"
+        pt: "Portuguese"
     errors:
       messages:
         record_invalid: 'Validation failed: %{errors}'
@@ -318,7 +339,7 @@ en:
       user: "user"
 
   #----------------------------------------------------------------------------
-  # Controllers/views (in alphabetical order)
+  # Controllers e Views (in alphabetical order)
 
   eg_posts:
     not_published: "not yet published"
@@ -331,6 +352,12 @@ en:
       html_head_title: "Edit Post %{id}"
     new:
       html_head_title: "New post"
+  lessons:
+    index:
+      banner_title: "List of lessons"
+      breadcrumb_home: "Home"
+      breadcrumb_lessons: "lessons"
+      form_search_placeholder: "Find..."
   mockups:
     page_a:
       navbar_title: "Navbar"
@@ -355,6 +382,18 @@ en:
       toast_title: "This is the toast title"
       toast_time_ago: "11 mins ago"
       toast_message: "Hello, world! This is a toast message."
+  navbar:
+    lessons: "Lessons"
+    all_levels: "All levels"
+    beginner: "Beginner"
+    intermediate: "Intermediate"
+    advanced: "Advanced"
+    labelnew: "new"
+    manage_users: "Manage Users"
+    edit_profile: "Edit Profile"
+    update_password: "Update Password"
+    logout: "Logout"
+    dark_mode: "Dark mode"
   users:
     index:
       html_head_title: "All users"
