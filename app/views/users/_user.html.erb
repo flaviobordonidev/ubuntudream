@@ -18,7 +18,8 @@
           </div>
           <!-- Info -->
           <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-            <h5 class="mb-0"><a href="#"><%= user.first_name %> <%= user.last_name %> (<%= user.username %>)</a></h5>
+            <!--<h5 class="mb-0"><a href="#"><%= user.first_name %> <%= user.last_name %> (<%= user.username %>)</a></h5>-->
+            <h6 class="mb-0"><%= link_to "#{user.first_name} #{user.last_name} (#{user.username})", user %></h6>
             <span class="text-body small"><i class="fas fa-fw fa-map-marker-alt me-1 mt-1"></i><%= user.location %> - <%= user.email %></span>
           </div>
         </div>
@@ -63,6 +64,15 @@
             <h6 class="mb-0 ms-2 fw-light">Role</h6>
           </div>
           <span class="mb-0 fw-bold"><%= user.role %></span>
+        </div>
+
+        <!-- Bio -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="d-flex align-items-center">
+            <div class="icon-md bg-purple bg-opacity-10 text-purple rounded-circle flex-shrink-0"><i class="fas fa-book fa-fw"></i></div>
+            <h6 class="mb-0 ms-2 fw-light">Bio</h6>
+          </div>
+          <span class="mb-0 fw-bold"><%= user.bio %></span>
         </div>
 
         <!-- Progress -->

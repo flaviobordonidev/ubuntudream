@@ -74,11 +74,15 @@ Page content START -->
               </div>
             </form> %>
 
-            <%= form_with(url: "", method: "get", local:true, class: "border rounded p-2") do %>
-              <div class="input-group input-borderless">
-                <%= text_field_tag :search, params[:search], class: "form-control me-1", placeholder: t(".form_search_placeholder") %>
-                <%= button_tag type: 'submit', class: "btn btn-primary mb-0 rounded z-index-1" do %>
-                  <i class="fas fa-search"></i>
+            <!-- Search with Ransack -->
+            <%= search_form_for @q, class: "rounded position-relative" do |f| %>
+              <div class="input-group mb-3">
+                <%#= hidden locale valoreattuale %>
+                <%= hidden_field_tag :locale, params[:locale] %>
+                <%= f.search_field :name_cont, autofocus: true, class: "form-control", placeholder: t(".form_search_placeholder"), 'aria-label': "Search", 'aria-describedby': "button-search" %>
+                <%#= f.submit "Search", class: "btn btn-outline-secondary", id: "button-search"%>
+                <%= button_tag type: 'submit', class: "btn btn-outline-secondary", id: "button-search" do %>
+                  <i class="fas fa-search fs-6 "></i>
                 <% end %>
               </div>
             <% end %>

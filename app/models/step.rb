@@ -7,7 +7,7 @@ class Step < ApplicationRecord
   extend Mobility
   translates :question, type: :string
   translates :cheneso, type: :string
-  #translates :youtube_video_id, type: :string
+  translates :youtube_video_id, type: :string
   
   # == Attributes ===========================================================
 

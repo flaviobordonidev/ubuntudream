@@ -35,7 +35,9 @@
 it:
   pagy:
     nav:
-      prev: "< ndietro"
+      prev: "< prec"
+      gap: "-vuoto-"
+      next: "succ >"
 
   #----------------------------------------------------------------------------
   # Globali (in ordine alfabetico)

@@ -5,10 +5,10 @@ class LessonsController < ApplicationController
   # GET /lessons or /lessons.json
   def index
     #@lessons = Lesson.all
-    @pagy, @lessons = pagy(Lesson.all, items: 3)
+    #@pagy, @lessons = pagy(Lesson.all, items: 3)
+    @q = Lesson.ransack(params[:q])
+    @pagy, @lessons = pagy(@q.result(distinct: true), items: 3)
 
-    #params[:search] = "" if params[:search].blank?
-    #@pagy, @lessons = pagy(Lesson.search(params[:search]), items: 6)
     authorize @lessons
   end
 

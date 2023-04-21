@@ -128,7 +128,7 @@ Page content START -->
 			
 				<!-- Title -->
 				<h5 class="mb-0">Hi, I am</h5>
-				<h1 class="mb-0"><%= @user.first_name + " " + @user.last_name %></h1>
+				<h1 class="mb-0"><%= "#{@user.first_name} #{@user.last_name}" %></h1>
 				<p>Per gli amici <%= @user.username %></p>
 				<!-- Content -->
 				<p class="mt-4"><%= @user.bio %></p>

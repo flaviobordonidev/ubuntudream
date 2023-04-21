@@ -33,6 +33,11 @@
 # https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/pt-BR.yml
 
 pt:
+  pagy:
+    nav:
+      prev: "< ant"
+      gap: "-branco-"
+      next: "próx >"
 
   #----------------------------------------------------------------------------
   # Globais (em ordem alfabética)

@@ -123,7 +123,9 @@ Page content START -->
 								<!-- Search with Ransack -->
 								<%= search_form_for @q, class: "rounded position-relative" do |f| %>
 									<div class="input-group mb-3">
-										<%= f.search_field :first_name_or_last_name_or_username_cont, autofocus: true, class: "form-control", placeholder: "Search...", 'aria-label': "Search", 'aria-describedby': "button-search" %>
+										<%#= hidden locale valoreattuale %>
+										<%= hidden_field_tag :locale, params[:locale] %>
+										<%= f.search_field :first_name_or_last_name_or_username_or_bio_cont, autofocus: true, class: "form-control", placeholder: "Search...", 'aria-label': "Search", 'aria-describedby': "button-search" %>
 										<%#= f.submit "Search", class: "btn btn-outline-secondary", id: "button-search"%>
 										<%= button_tag type: 'submit', class: "btn btn-outline-secondary", id: "button-search" do %>
 											<i class="fas fa-search fs-6 "></i>

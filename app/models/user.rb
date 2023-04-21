@@ -1,4 +1,24 @@
 class User < ApplicationRecord
+  # column_names and others (ActiveStorage, ActionText, Mobility, ...) 
+  # in alphabetical order except: "id" always on top; "created_at" and "updated_at" always on bottom.
+  # "id"
+  # "avatar_image" (ActiveStorage)
+  # "bio" (Mobility)
+  # "email"
+  # "encrypted_password"
+  # "first_name"
+  # "language"
+  # "last_name"
+  # "location"
+  # "phone_number"
+  # "remember_created_at"
+  # "reset_password_token"
+  # "reset_password_sent_at"
+  # "role"
+  # "username"
+  # "created_at"
+  # "updated_at"
+
   # == Constants ============================================================
   
   # == Extensions ===========================================================
@@ -9,6 +29,10 @@ class User < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
+  ## i18n dynamic
+  extend Mobility
+  translates :bio, type: :string
+  
   # == Attributes ===========================================================
 
   ## enum

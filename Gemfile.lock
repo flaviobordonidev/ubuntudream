@@ -154,6 +154,9 @@ GEM
     mobility-actiontext (1.1.1)
       actiontext (>= 6.0)
       mobility (~> 1.2)
+    mobility-ransack (1.2.2)
+      mobility (>= 1.0.1, < 2.0)
+      ransack (>= 1.8.0, < 5.0)
     msgpack (1.5.6)
     net-imap (0.2.3)
       digest
@@ -296,6 +299,7 @@ DEPENDENCIES
   jbuilder
   mobility (~> 1.2, >= 1.2.9)
   mobility-actiontext (~> 1.1, >= 1.1.1)
+  mobility-ransack (~> 1.2, >= 1.2.2)
   pagy (~> 5.10, >= 5.10.1)
   pg (~> 1.1)
   puma (~> 5.0)

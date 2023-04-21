@@ -35,7 +35,9 @@
 en:
   pagy:
     nav:
-      prev: "< backrear"
+      prev: "< prev"
+      gap: "-blank-"
+      next: "next >"
 
   #----------------------------------------------------------------------------
   # Globals (in alphabetical order)

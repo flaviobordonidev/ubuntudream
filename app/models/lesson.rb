@@ -1,4 +1,18 @@
 class Lesson < ApplicationRecord
+  # column_names and others (ActiveStorage, ActionText, Mobility, ...) 
+  # in alphabetical order except: "id" always on top; "created_at" and "updated_at" always on bottom.
+  # "id"
+  # "description"
+  # "description_rtf" (Mobility+ActionText)
+  # "duration"
+  # "name" (Mobility)
+  # "picture_author_name" 
+  # "picture_author_image" (ActiveStorage)
+  # "picture_image" (ActiveStorage)
+  # "picture_museum_name"
+  # "created_at" 
+  # "updated_at"
+
   # == Constants ============================================================
   
   # == Extensions ===========================================================
@@ -10,7 +24,7 @@ class Lesson < ApplicationRecord
   
   # == Attributes ===========================================================
 
-  ## ActiveText
+  ## ActionText
   #has_rich_text :description_rtf
 
   ## ActiveStorage
