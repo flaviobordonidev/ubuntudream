@@ -26,9 +26,10 @@
 
         <!-- Nav Main menu START -->
 				<ul class="navbar-nav navbar-nav-scroll mx-auto">
+					<li> <%= link_to  t("navbar.lessons"), lessons_path, class: "dropdown-item" %> </li>
 
 					<!-- Nav item 1 Lessons -->
-					<li class="nav-item dropdown">
+					<!--<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="gratitudeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t "navbar.lessons" %></a>
 						<ul class="dropdown-menu" aria-labelledby="gratitudeMenu">
 							<li> <%= link_to  t("navbar.all_levels"), lessons_path, class: "dropdown-item" %> </li>
@@ -42,7 +43,7 @@
 								<% end %>
 							</li>
 						</ul>
-					</li>
+					</li>-->
 
 				</ul>
 				<!-- Nav Main menu END -->
@@ -100,7 +101,7 @@
 						<a class="nav-link dropdown-toggle" href="#" id="languageMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-language me-2"></i>Language</a>
 						<ul class="dropdown-menu" aria-labelledby="languageMenu">
 							<li><%= link_to "Italiano", params.permit(:locale).merge(locale: 'it'), class: "dropdown-item #{params[:locale] == "it" ? "active" : ""}" %></li>
-							<li><%= link_to "Inglese", params.permit(:locale).merge(locale: 'en'), class: "dropdown-item #{params[:locale] == "en" ? "active" : ""}" %></li>
+							<!--<li><%= link_to "Inglese", params.permit(:locale).merge(locale: 'en'), class: "dropdown-item #{params[:locale] == "en" ? "active" : ""}" %></li>-->
 							<li><%= link_to "Portoghese", params.permit(:locale).merge(locale: 'pt'), class: "dropdown-item #{params[:locale] == "pt" ? "active" : ""}" %></li>
 						</ul>
 					</li>

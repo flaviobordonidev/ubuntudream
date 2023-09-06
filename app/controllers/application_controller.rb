@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
 
-  include Pundit
+  #include Pundit
+  include Pundit::Authorization
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   include Pagy::Backend
 
@@ -30,7 +31,8 @@ class ApplicationController < ActionController::Base
       end
 
       case params[:locale]
-      when "it", "en", "pt"
+      #when "it", "en", "pt"
+      when "it", "pt"
         I18n.locale = params[:locale]
       else
         I18n.locale = I18n.default_locale

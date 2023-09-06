@@ -46,6 +46,8 @@
 													<div class="col-lg-12">
 														<h3 class="text-white mb-3 mx-3"><%= @step.question %></h3>
 
+														<p>fanculo: <%= form.number_field :diary_chap %> cazzo</p>
+
 														<!-- Creiamo nuovo Record -->
 														<%= form.fields_for :answers, Answer.new do |answer| %>
 															<%= render "answer_fields", form: answer %>
@@ -193,6 +195,7 @@
 
 		<% if current_user.admin? %>
 			<h6>Sezione Admin</h6>
+			<p>Diary-chap: <%= @step.diary_chap %></p>
 
         <!-- Pagination START -->
         <div class="col-12">
