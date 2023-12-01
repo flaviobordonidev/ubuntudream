@@ -10,12 +10,13 @@
         <!--<div style="width: 100%; min-width: 100px; max-width: 1200px;" class="d-block mx-auto">-->
 
           <!--<div id="player-papa" style="position: relative; width:100%; overflow:hidden; padding-top: 56.25%;">-->
+          <div id="player-papa">
             <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
             <div id="player" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100svh; border:none;"></div>
-          <!--</div>-->
+          </div>
 
 					<!-- 1b. The <div> with <form> that replaces the video player <iframe> tag. -->
-					<div id="<%= dom_id @step %>">
+					<div id="<%= dom_id @step %>" style="display: block; margin-left: auto; margin-right: auto;">
 						<%= form_with(model: [@lesson, @step], local: true, id: "answer-form", html: {'data-turbo': "false", style: "display: none; "}) do |form| %>
 							<!-- =======================
 							Newsletter START -->
@@ -46,7 +47,11 @@
 													<div class="col-lg-12">
 														<h3 class="text-white mb-3 mx-3"><%= @step.question %></h3>
 
-														<p>fanculo: <%= form.number_field :diary_chap %> cazzo</p>
+														<% if current_user == "admin" %>
+															<p>fanculo: <%= form.number_field :diary_chap %> cazzo</p>
+														<% else %>
+															<%= form.hidden_field :diary_chap %>
+														<% end %>
 
 														<!-- Creiamo nuovo Record -->
 														<%= form.fields_for :answers, Answer.new do |answer| %>
